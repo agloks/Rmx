@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+  font-size: 75%;  
+}
+
+/* usando no index e tutorial para centralizar o main no meio */
+.main-mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 50rem;
+  flex-flow: column;
+}
+
+.main-mid > a {
+  margin-top: 4rem;
+  font-size: 1.8rem;
+}
+
+#tutorial-reply {
+  font-style: italic;
+}
+
+textarea{
+  resize: none;
+}
+
+textarea:enabled {
+  background: white;
+}
+
+textarea:disabled {
+  background: #dddddd;
+}
