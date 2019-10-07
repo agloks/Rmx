@@ -8,6 +8,7 @@ const moment = require("moment")
 //criando esqueleto do documento article
 const ArticleSchema = new Schema (
   {
+    userId: Schema.Types.ObjectId,
     title: Schema.Types.Mixed,
     text: Schema.Types.Mixed,
     replyes:[ {type:Schema.Types.ObjectId, ref:"comment"} ],

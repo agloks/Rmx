@@ -11,7 +11,7 @@ const user = require("../models/schemaUser.js")
 //GET
 router.get("/login", (req, res) => {
     console.log( color.red(">>> To no get login \n") )
-    res.render("login")
+    res.render("login&&sign/login")
 })
 
 //POST
@@ -29,7 +29,7 @@ router.post("/login/post",async (req, res) => {
         {
             maxAge:1000 * 60 * 2,//2 minutos
             httpOnly:false,//permiti que o cookie seja acessivel no front
-        }).render("tutorial", sendControl[0])//precisamos manda o id para o hbs
+        }).render("tutoriais/tutorial", sendControl[0])//precisamos manda o id para o hbs
     }
     else {
         console.log("error no post login"+sendControl)

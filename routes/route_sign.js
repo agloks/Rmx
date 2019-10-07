@@ -16,7 +16,7 @@ async function newUser(reqs) {
 //GET
 router.get("/sign", (req, res) => {
   console.log( color.red(">>> To no sign get\n") )
-  res.render("sign.hbs")
+  res.render("login&&sign/sign.hbs")
 })
 
 //POST
@@ -30,10 +30,10 @@ router.post("/sign", async (req, res) => {
       reqSave.role = "Remixante"
       await newUser(reqSave)
       res.redirect("/login")
-    } else { res.render("sign.hbs", {fail : `falha para registrar, verificar se os campos tao registrado corretamente`} ) } 
+    } else { res.render("login&&sign/sign.hbs", {fail : `falha para registrar, verificar se os campos tao registrado corretamente`} ) } 
   
   } catch (error) {
     console.log("error found sign " + error)  
-    res.render("sign.hbs", {fail : "login ja existe"} )
+    res.render("login&&sign/sign.hbs", {fail : "login ja existe"} )
   }
 })
