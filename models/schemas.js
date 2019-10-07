@@ -9,8 +9,8 @@ const moment = require("moment")
 const UserSchema = new Schema (
   {
   name: String ,
-  login: { type:String, unique: true, required: true } ,
-  password: { type: String, required: true },
+  login: { type:Schema.Types.Mixed, unique: true, required: true } ,
+  password: { type: Schema.Types.Mixed, required: true },
   role: String
   },
   { timestamps:true }
@@ -19,12 +19,12 @@ const UserSchema = new Schema (
 //criando esqueleto do documento article
 const ArticleSchema = new Schema (
   {
-    title: String,
-    text: String,
+    title: Schema.Types.Mixed,
+    text: Schema.Types.Mixed,
     replyes:
     [{
       user: { type: Schema.Types.ObjectId, ref: 'user' },
-      text: String,
+      text: Schema.Types.Mixed,
       timestamps: {type: Date, default: moment.utc("2019-10-06")}
     }],
     likes: Number,
@@ -60,6 +60,6 @@ const TestArticle =
 
 
 // article.create(TestArticle).then((e) => console.log(e)).catch((e) => console.log(e))
-// user.create(Test).then((e) => console.log(e)).catch((e) => console.log(e))
+// user.create(TestUser).then((e) => console.log(e)).catch((e) => console.log(e))
 
 module.exports = user
