@@ -1,6 +1,6 @@
 const color = require("chalk")
 const router = require("./route_raiz.js")
-const user = require("../models/schemas.js")
+const user = require("../models/schemaUser.js")
 const b = require("bcrypt")
 
 //FUNCTIONS
