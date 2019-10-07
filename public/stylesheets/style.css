@@ -3,37 +3,153 @@
     padding: 0px;
 }
 
-html {
-  font-size: 75%;  
+/* --HOME */
+
+/* navbar */
+.nav-bar {
+  display: flex;
+  background-color: rgba(34, 34, 47, 0.6);
+  height: 70px;
 }
 
-/* usando no index e tutorial para centralizar o main no meio */
-.main-mid {
+.nav-bar > ul {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 25px;
+}
+
+.logo {
+  position: relative;
+  left: 30px;
+  color: white;
+  font-weight: bold;
+  list-style: none;
+}
+
+.categories {
+  display: flex;
+  position: relative;
+  left: 800px;
+}
+
+.categories > li {
+  padding-left: 20px;
+  list-style: none;
+}
+
+li > a {
+  color: white;
+  text-decoration: none;
+}
+
+li > a:hover {
+  text-decoration: none;
+  color:lightgrey;
+}
+
+/* imagem de fundo da home */
+
+.image-home {
+  background-image: linear-gradient(30deg, aqua , crimson, orangered);
+  background-size: 100%;
+}
+
+/* layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 554px;
+}
+
+.layout > h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+form > button {
+  border-style: none;
+  border-radius: 50px;
+  background-color: rgba(34, 34, 47);
+}
+
+button > p {
+  position: relative;
+  top: 5px;
+  padding: 1px 20px;
+  font-size: 23px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* END OF HOME */
+
+/* SIGN CSS */
+.sign {
+  background-image: linear-gradient(30deg, aqua , crimson, orangered);
+  background-size: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  height: 50rem;
-  flex-flow: column;
 }
 
-.main-mid > a {
-  margin-top: 4rem;
-  font-size: 1.8rem;
+.container-sign{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:  rgba(34, 34, 47, 0.8);
+  border-radius: 20px;
+  height: 500px;
+  width: 470px;
 }
 
-#tutorial-reply {
-  font-style: italic;
+.container-sign > form {
+  position: relative;
+  top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-textarea{
-  resize: none;
+.container-sign > h2 {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  top: 40px;
 }
 
-textarea:enabled {
-  background: white;
+.container-sign > h1 {
+  font-size: 60px;
+  color: white;
+  position: relative;
+  top: 30px;
 }
 
-textarea:disabled {
-  background: #dddddd;
+form > label {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-sign {
+  position: relative;
+  top: 20px;
+  border-style: none;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.btn-sign > p {
+  font-size: 18px;
+  padding: 1px 10px;
+  color: black;
+  position: relative;
+  top: 8px;
 }
