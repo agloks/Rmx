@@ -1,11 +1,11 @@
 const express = require ("express")
 const color = require("chalk")
+const bcrypt = require("bcrypt")
 
 //libs locais
 const router = require("./route_raiz.js")
 const controlUserReq = require("../models/all.js")
-const user = require("../models/schemas.js")
-
+const user = require("../models/schemaUser.js")
 //----------------------------------- CRIANDO ROUTAS GET ------------------------------------
 
 //GET
@@ -15,23 +15,24 @@ router.get("/login", (req, res) => {
 })
 
 //POST
-router.post("/login",async (req, res) => {
+router.post("/login/post",async (req, res) => {
     //pega a resposta do post
     console.log( req.body )
 
-    const sendControl = await user.find({name:req.body.username})// pegando o objeto usuario no bd
+    const sendControl = await user.find({login:req.body.login})// pegando o objeto usuario no bd
+    console.log(sendControl)
     const userControled = (sendControl.length === 0) ? new controlUserReq("Guess") : new controlUserReq(sendControl[0].role)//passando a role para a classe que controlara o dom
     userControled.setPermission()//setando as permissão que o usuario pode
-
-    if(userControled.PERMISISION[0]){
+    if( userControled.PERMISISION[0] && bcrypt.compareSync(req.body.password, sendControl[0].password) ){
         //aqui enviamos o cookie para que possamos manipular o dom no front
         res.cookie("Connection",userControled.PERMISISION.join(""),
         {
             maxAge:1000 * 60 * 2,//2 minutos
             httpOnly:false,//permiti que o cookie seja acessivel no front
-        }).redirect("/tutorial")
+        }).render("tutorial", sendControl[0])//precisamos manda o id para o hbs
     }
     else {
+        console.log("error no post login"+sendControl)
         res.redirect("/login")
     }
 } )
