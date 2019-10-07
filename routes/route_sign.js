@@ -4,6 +4,7 @@ const user = require("../models/schemaUser.js")
 const b = require("bcrypt")
 
 //FUNCTIONS
+//Função para cria o usario e da seu hash
 async function newUser(reqs) {
   let bSalt =  b.genSaltSync(7)
   let bHash =  b.hashSync(reqs.password, bSalt)
@@ -25,13 +26,13 @@ router.post("/sign", async (req, res) => {
   const reqSave = req.body
   console.log( reqSave )
 
+  //fazemos verficação pelo tamanho dos campo escrito
   try {
     if( (reqSave.name.length) && (reqSave.password.length) && (reqSave.login.length) ) {
-      reqSave.role = "Remixante"
+      reqSave.role = "Remixante" // passamos a sua role default
       await newUser(reqSave)
       res.redirect("/login")
     } else { res.render("login&&sign/sign.hbs", {fail : `falha para registrar, verificar se os campos tao registrado corretamente`} ) } 
-  
   } catch (error) {
     console.log("error found sign " + error)  
     res.render("login&&sign/sign.hbs", {fail : "login ja existe"} )

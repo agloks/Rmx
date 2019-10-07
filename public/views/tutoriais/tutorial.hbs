@@ -1,11 +1,25 @@
 <main class = "main-mid">
-  <h1>Tutorial</h1>
-  <article>Tutorial one</article>
-  <article>Tutorial two</article>
-  {{!-- temos o documento do user logado aqui --}}
-  <form action="/tutorial/{{_id}}" method="POST">
-    <textarea name = "text" id = "tutorial-text" name = "text" disabled="disabled" cols = 40 rows = 10></textarea>
-    <button type="submit"> CREATE </button>
-  </form>
+
+{{!--
+  NAO COMETA ESSE ERRO DENOVO
+  {{#each allTutorial}}
+    {{#if this.userId.name}}
+      <div>Bem vindo {{this.userId.name}}</div>
+    {{/if}}
+  {{/each}}
+  <h1>{{userLogged}}</h1> --}}
+
+  {{#each allTutorial}}
+    <div>
+      esse texto {{this.text}} pertence
+      {{#if this.userId.name}}
+      <b>{{this.userId.name}}</b>
+      {{else}}
+      <b>SEM NOME</b>
+      {{/if}}
+    </div>
+  {{/each}}
+
+  <a href="/tutorial/edit">CRIE SEU TUTORIAL</a>
 
 </main>

@@ -22,11 +22,6 @@ const TestProject =
   {
     title: "test",
     text: "sjiaiejifjaeif aefjaeifniae ifae ifaneifae ifneai",
-    // replyes:
-    // [{
-    //   text: "soamcmcanei fmeaimfao camoe",
-    //   timestamps: moment.utc("2019-10-06")
-    // }],
     likes: 2,
     time: moment.utc("2019-10-06")
   }

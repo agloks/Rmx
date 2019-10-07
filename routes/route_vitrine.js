@@ -1,7 +1,7 @@
 const color = require("chalk")
 const router = require("./route_raiz.js")
 
-//forum
+//vitrine
 router.get("/vitrine", (req, res) => {
   console.log( color.red(">>> To na vitrine / \n") )
   res.render("vitrine/vitrine.hbs")

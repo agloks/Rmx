@@ -2,28 +2,42 @@ const color = require("chalk")
 const router = require("./route_raiz.js")
 const util = require("util")
 const article = require("../models/schemaArticle.js")
+// const user = require("../models/schemaUser.js")
 
+//FUNCÕES
+//Função para cria o tutorial
 async function createArticle(reqs) {
   article.create(reqs).then((s) => console.log(s)).catch((e) => console.log(e))
 } 
 
-//tutorial do visitante, sem permissão de editar
-router.get("/tutorial", (req, res) => {
+//GET ROUTE
+//Tutorial do visitante, sem permissão de editar
+router.get("/tutorial", async (req, res) => { // 1
   console.log( color.red(">>> To no tutorial get \n") )
-  res.render("tutoriais/tutorial.hbs")
+  //vemos se o usuario ta logado
+  let idUserOwner = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
+  if(idUserOwner !== null) {
+    console.log(idUserOwner)
+    //PRECISAMOS MEXER AQUI, PARA QUE QUANDO ELE TIVER LOGADO O QUE ELE PODERA FAZER?
+    var allTutorial = await article.find().populate("userId") // array de todos os documentos achado
+  }
+  else{ var allTutorial = await article.find().populate("userId") }//DEFAULT MOSTRAMOS A QUEM PERTENCE O TEXTO
+  res.render("tutoriais/tutorial.hbs", {allTutorial} )
 })
 
-// router.get("/tutorial/:idArticle", (req, res) => {
-//   req.params.idArticle
-// })
+//Routa que leva a permitir cria o tutorial
+router.get("/tutorial/edit", (req, res) => { //3
+  res.render("tutoriais/tutorial-edit.hbs")
+})
 
+//POST
 //pegamos o id do render sucess na rote_login
-router.post("/tutorial/:id", async (req, res) => {
-  console.log( color.red(">>> To no tutorial post \n") ); console.log( color.blue(`${util.inspect(req.params)}\n`) );
+router.post("/tutorial/edit", async (req, res) => { // 2
+  console.log( color.red(">>> To no tutorial post \n") );
   if(req.body.text !== "")
   {
-    req.body.userId = req.params.id
-    await createArticle(req.body)
-    res.render("tutoriais/tutorial-owner.hbs", req.body)
-  } else { res.render("tutoriais/tutorial.hbs"), { error: "Falha ao criar o post" } }
+    req.body.userId = req.cookies.Connection.id//colocamos o id do user para o objeto req.body
+    await createArticle(req.body)//criando o tutorial
+    res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  } else { res.render("tutoriais/tutorial-edit.hbs"), { error: "Falha ao criar o post" } }
 })
