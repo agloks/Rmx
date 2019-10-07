@@ -8,6 +8,7 @@ const moment = require("moment")
 //criando esqueleto do documento article
 const ArticleSchema = new Schema (
   {
+    userId: { type:Schema.Types.ObjectId, ref:"user" },
     title: Schema.Types.Mixed,
     text: Schema.Types.Mixed,
     replyes:[ {type:Schema.Types.ObjectId, ref:"comment"} ],
@@ -22,11 +23,6 @@ const TestArticle =
   {
     title: "test",
     text: "sjiaiejifjaeif aefjaeifniae ifae ifaneifae ifneai",
-    // replyes:
-    // [{
-    //   text: "soamcmcanei fmeaimfao camoe",
-    //   timestamps: moment.utc("2019-10-06")
-    // }],
     likes: 2,
     time: moment.utc("2019-10-06")
   }
