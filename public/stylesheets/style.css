@@ -74,13 +74,14 @@ li > a:hover {
 }
 
 /* layout */
+
 .layout {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 554px;
+  margin-top: 10rem;
 }
 
 .layout > h1 {
