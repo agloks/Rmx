@@ -12,6 +12,8 @@
     </ul>
 
   </nav>
+
+  <h1><span>Tutorials</span></h1>
 <form action="/tutorial/create">
   <button type="submit"><p>+</p></button>
 </form>
@@ -24,9 +26,12 @@
 
       {{#each allTutorial}}
       <div class="card bg-dark text-white col-3">
-        <img src="{{this.image}}" class="card-img" alt="...">
+        <img src="{{this.image}}" class="card-img" alt="..." height="200">
         <div class="card-img-overlay">
-          <h5 class="card-title">{{this.text}}</h5>
+          <h5 class="card-title">{{this.title}}</h5>
+          <form action="/tutorial/edit?id={{id}}">
+          <button type="submit"><p>Look!</p></button>
+          </form>
         </div>
       </div>
       {{/each}}
