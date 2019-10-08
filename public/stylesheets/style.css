@@ -297,8 +297,9 @@ form > label {
 .main-mid {
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  /* background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab); */
   background-size: 400% 400%;
+  background-color:rgba(34, 34, 47, 0.9);
   /* height: 100vh; */
   animation: bgAnimation 15s ease infinite;
 }
@@ -313,13 +314,14 @@ form > label {
   display: flex;  
   justify-content: center;
   margin-top: 40px;
-}
-h1 > span {
-  background-color: rgba(34, 34, 47, 0.6);
   color: white;
-  padding: 1px 15px;
-  border-radius: 50px;
 }
+
+.btn-tutorial {
+  background-image: linear-gradient(35deg, orangered, pink);
+}
+
+
 .margin-all > div {
   margin:30px;
 }

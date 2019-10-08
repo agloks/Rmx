@@ -13,9 +13,10 @@
 
   </nav>
 
-  <h1><span>Tutorials</span></h1>
+  <h1>Tutorials</h1>
+  <hr>
 <form action="/tutorial/create">
-  <button type="submit"><p>+</p></button>
+  <button type="submit" class="btn-tutorial"><p>+ add a new tutorial</p></button>
 </form>
 
   {{!-- <a href="/tutorial/edit">CRIE SEU TUTORIAL</a> --}}
@@ -29,8 +30,8 @@
         <img src="{{this.image}}" class="card-img" alt="..." height="200">
         <div class="card-img-overlay">
           <h5 class="card-title">{{this.title}}</h5>
-          <form action="/tutorial/edit?id={{id}}">
-          <button type="submit"><p>Look!</p></button>
+          <form action="/tutorial/edit?id={{this._id}}" method="POST">
+          <button type="submit" class="btn-tutorial"><p>Look!</p></button>
           </form>
         </div>
       </div>

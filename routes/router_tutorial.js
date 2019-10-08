@@ -33,11 +33,12 @@ router.get("/tutorial/create", (req, res) => { //3
 //POST
 //pegamos o id do render sucess na rote_login
 router.post("/tutorial/edit", async (req, res) => { // 2
-  console.log( color.red(">>> To no tutorial post \n") );
+  console.log( color.red(">>> To no tutorial post \n" + req.cookies.Connection + "\n" + req.body) );
   if(req.body.text !== "")
   {
-    req.body.userId = req.cookies.Connection.id//colocamos o id do user para o objeto req.body
+    req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
     await createArticle(req.body)//criando o tutorial
+    console.log(req.body)
     res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
   } else { res.render("tutoriais/tutorial-edit.hbs"), { error: "Falha ao criar o post" } }
 })
