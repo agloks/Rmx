@@ -20,8 +20,11 @@
 }
 
 .logo {
+  margin: 0px;
+  padding: 0px;
   position: relative;
   left: 30px;
+  bottom: 20px;
   color: white;
   font-weight: bold;
   list-style: none;
@@ -30,7 +33,7 @@
 .categories {
   display: flex;
   position: relative;
-  left: 800px;
+  left: 650px;
 }
 
 .categories > li {
@@ -51,8 +54,16 @@ li > a:hover {
 /* imagem de fundo da home */
 
 .image-home {
-  background-image: linear-gradient(30deg, aqua , crimson, orangered);
-  background-size: 100%;
+  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  height: 100vh;
+  animation: bgAnimation 15s ease infinite;
+}
+
+@keyframes bgAnimation { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 /* layout */
@@ -78,26 +89,42 @@ form > button {
   background-color: rgba(34, 34, 47);
 }
 
-button > p {
+form > button:hover {
+  background-color: #323245
+}
+  button > p {
   position: relative;
-  top: 5px;
-  padding: 1px 20px;
-  font-size: 23px;
+  top: 8px;
+  padding: 1px 30px;
+  font-size: 18px;
   color: white;
   letter-spacing: 2px;
   font-weight: bold;
 }
 
+
 /* END OF HOME */
 
 /* SIGN CSS */
 .sign {
-  background-image: linear-gradient(30deg, aqua , crimson, orangered);
-  background-size: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  height: 100vh;
+  animation: bgAnimation 15s ease infinite;
+}
+
+@keyframes bgAnimation { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.container-sign > img {
+  position: relative;
+  top: 20px;
 }
 
 .container-sign{
@@ -106,13 +133,13 @@ button > p {
   align-items: center;
   background-color:  rgba(34, 34, 47, 0.8);
   border-radius: 20px;
-  height: 500px;
+  height: 550px;
   width: 470px;
 }
 
 .container-sign > form {
   position: relative;
-  top: 70px;
+  top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,14 +150,24 @@ button > p {
   color: white;
   font-size: 30px;
   position: relative;
-  top: 40px;
+  top: 25px;
 }
 
-.container-sign > h1 {
+/* .container-sign > h1 {
   font-size: 60px;
   color: white;
   position: relative;
   top: 30px;
+} */
+.container-sign > a {
+  position: relative;
+  bottom: -90px;
+  color: aqua;
+}
+
+.container-sign > a:hover {
+  text-decoration: none;
+  color: darkcyan;
 }
 
 form > label {
@@ -147,6 +184,10 @@ form > label {
   background-color: white;
 }
 
+.btn-sign:hover {
+  background-color: white;
+}
+
 .btn-sign > p {
   font-size: 18px;
   padding: 1px 10px;
@@ -154,3 +195,94 @@ form > label {
   position: relative;
   top: 8px;
 }
+
+/* SIGN END */
+
+/* LOGIN START */
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  height: 100vh;
+  animation: bgAnimation 15s ease infinite;
+}
+
+@keyframes bgAnimation { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.container-login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:  rgba(34, 34, 47, 0.8);
+  border-radius: 20px;
+  height: 500px;
+  width: 470px;
+}
+
+.container-login > img {
+  position: relative;
+  top: 20px;
+}
+
+.container-login > h2 {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  top: 25px;
+}
+
+.container-login > h1 {
+  font-size: 60px;
+  color: white;
+  position: relative;
+  top: 30px;
+}
+
+.login-label {
+    position: relative;
+    top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .login-label > label {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .container-login > a {
+    position: relative;
+    bottom: -100px;
+    color: aqua;
+  }
+  
+  .container-login > a:hover {
+    text-decoration: none;
+    color: darkcyan;
+  }
+
+  .btn-login {
+    position: relative;
+    top: 20px;
+    border-style: none;
+    border-radius: 20px;
+    background-color: white;
+  }
+  
+  .btn-login > p {
+    font-size: 18px;
+    padding: 1px 10px;
+    color: black;
+    position: relative;
+    top: 8px;
+  }
