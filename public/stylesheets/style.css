@@ -293,12 +293,13 @@ form > label {
   }
 
 /* LOGIN END   */
-
+/* TUTORIALS START */
 .main-mid {
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  /* background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab); */
   background-size: 400% 400%;
+  background-color:rgba(34, 34, 47, 0.9);
   /* height: 100vh; */
   animation: bgAnimation 15s ease infinite;
 }
@@ -309,18 +310,18 @@ form > label {
     100%{background-position:0% 50%}
 }
 
+.main-mid > h1 {
+  display: flex;  
+  justify-content: center;
+  margin-top: 40px;
+  color: white;
+}
+
+.btn-tutorial {
+  background-image: linear-gradient(35deg, orangered, pink);
+}
+
+
 .margin-all > div {
   margin:30px;
 }
-
-/* display: flex; */
-/* flex-flow: row wrap; */
-/* justify-content: space-around; */
-
-
-/* margin-left: 5rem;
-display: grid;
-grid-template-columns: 100px 100px 100px;
-grid-template-rows: 100px 100px 100px 100px;
-grid-column-gap: 280px;
-grid-row-gap: 290px; */
