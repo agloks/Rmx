@@ -28,10 +28,10 @@ router.post("/login/post", async (req, res) => {
         //aqui enviamos o cookie para que possamos manipular o dom no front, e seu id para usamos em outras routas
         let send = { permission: userControled.PERMISISION.join(""), id: sendControl[0]._id }
         res.cookie("Connection", send,
-        {
-            maxAge:1000 * 60 * 2,//2 minutos
-            httpOnly:false,//permiti que o cookie seja acessivel no front
-        }).render("tutoriais/tutorial-create", sendControl[0])//precisamos manda o id para o hbs
+            {
+                maxAge: 1000 * 60 * 2,//2 minutos
+                httpOnly: false,//permiti que o cookie seja acessivel no front
+            }).render("tutoriais/tutorial-edit", sendControl[0])//precisamos manda o id para o hbs
     } else {
         console.log("error no post login" + sendControl)
         res.redirect("/login")

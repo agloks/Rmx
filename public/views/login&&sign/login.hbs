@@ -4,18 +4,19 @@
         {{!-- <h1>{name}</h1> --}}
         <img src="../../images/Mixer-logo-solo.png" alt="" height="120">
         <h2>Login</h2>
-        <div class="login-label">
 
-        <label for="login">Login:</label>
-        <input type=" text" name="login" id="login" placeholder="your login">
-        <label for="password">Password:</label>
-        <input type="text" name="password" id="password" placeholder="********">
-        <button type="submit" class="btn-login"> <p>Login!</p> </button>
+        <form action="/login/post" method="POST">
+            <label for="login">Login:</label>
+            <input type=" text" name="login" id="login" placeholder="your login">
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" placeholder="********">
+            <button type="submit" class="btn-login">
+                <p>Login!</p>
+            </button>
         </form>
-        </div>
-
         <a href="/">back to home</a>
-
     </div>
-    <form action="/login/post" method="POST">
+
+
+</div>
 </div>

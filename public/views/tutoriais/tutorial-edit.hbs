@@ -1,4 +1,9 @@
-  <form action="/tutorial/edit?id={{id}}" method="POST">
-    <textarea name = "text" id = "tutorial-text" name = "text" disabled="disabled" cols = 100 rows = 20></textarea>
-    <button type="submit"> SUBMIT </button>
+<main class = "main-mid">
+  <h1>Tutorials</h1>
+  {{!-- temos o documento do user logado aqui --}}
+  <form action="/tutorial/edit" method="POST">
+    <textarea name = "text" id = "tutorial-text" name = "text" disabled="disabled" cols = 40 rows = 10></textarea>
+    <button type="submit"> CREATE </button>
   </form>
+
+</main>
