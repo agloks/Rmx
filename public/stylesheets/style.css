@@ -183,6 +183,10 @@ form > label {
   background-color: white;
 }
 
+.btn-sign:hover {
+  background-color: white;
+}
+
 .btn-sign > p {
   font-size: 18px;
   padding: 1px 10px;
