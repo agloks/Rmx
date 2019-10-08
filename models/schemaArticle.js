@@ -8,6 +8,7 @@ const moment = require("moment")
 //criando esqueleto do documento article
 const ArticleSchema = new Schema (
   {
+    image: {type: String, default: "images/tutorial/qaglock.jpg"},
     userId: { type:Schema.Types.ObjectId, ref:"user" },
     title: Schema.Types.Mixed,
     text: Schema.Types.Mixed,
