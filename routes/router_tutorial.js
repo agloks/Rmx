@@ -26,7 +26,7 @@ router.get("/tutorial", async (req, res) => { // 1
 })
 
 //Routa que leva a permitir cria o tutorial
-router.get("/tutorial/edit", (req, res) => { //3
+router.get("/tutorial/create", (req, res) => { //3
   res.render("tutoriais/tutorial-edit.hbs")
 })
 
