@@ -11,7 +11,8 @@ const UserSchema = new Schema (
   name: String ,
   login: { type:Schema.Types.Mixed, unique: true, required: true } ,
   password: { type: Schema.Types.Mixed, required: true },
-  role: String
+  role: String,
+  image:{type: String, default: "images/user/buddypoke_user_default.png"}
   },
   { timestamps:true }
 )
