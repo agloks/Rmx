@@ -2,12 +2,12 @@ const color = require("chalk")
 const router = require("./route_raiz.js")
 const util = require("util")
 const article = require("../models/schemaArticle.js")
-// const user = require("../models/schemaUser.js")
+const user = require("../models/schemaUser.js")
 
 //FUNCÕES
 //Função para cria o tutorial
 async function createArticle(reqs) {
-  let foundArticle = article.create(reqs).then((s) => {return s._id}).catch((e) => console.log(e))
+  let foundArticle = article.create(reqs).then((s) => {return s}).catch((e) => console.log(e))
   return foundArticle
 } 
 
@@ -38,8 +38,8 @@ router.post("/tutorial/edit", async (req, res) => { // 2
   if(req.body.text !== "")
   {
     req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
-    req.body.id = await createArticle(req.body)//criando o tutorial
-    console.log(req.body)
+    if(req.body.userId !== null) { req.body.idArticle = await createArticle(req.body) }//criando o tutorial se ele ta em texto e logado
+    req.body.userInformation = await article.findById(req.query.id).populate("userId")
     res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
   } else { res.render("tutoriais/tutorial-edit.hbs"), { error: "Falha ao criar o post" } }
 })

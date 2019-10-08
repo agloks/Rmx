@@ -1,8 +1,13 @@
 {{!-- propiedades do tutorial criado --}}
-<h1>{{text}}</h1>
-<span>{{this.title}}</span>
+{{!-- {{#each }} --}}
+<h1>{{this.userInformation.text}}</h1>
+<span>{{this.userInformation.userId.name}}</span>
 
 {{!-- caso error, recebera o error --}}
 {{#if error}}
 <h1>{{error}}</h1>
 {{/if}}
+
+  <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
+    <button type="submit"> REMOVE </button>
+  </form>
