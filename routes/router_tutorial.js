@@ -35,13 +35,19 @@ router.get("/tutorial/create", (req, res) => { //3
 //pegamos o id do render sucess na rote_login
 router.post("/tutorial/edit", async (req, res) => { // 2
   console.log( color.red(">>> To no tutorial post \n" + req.query.id ) );
-  if(req.body.text !== "")
+  req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
+  if(req.body.text !== "" && req.body.text !== undefined)//criando
   {
-    req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
-    if(req.body.userId !== null) { req.body.idArticle = await createArticle(req.body) }//criando o tutorial se ele ta em texto e logado
+    if(req.body.userId !== null) { req.body.Article = await createArticle(req.body) }//criando o tutorial se ele ta em texto e logado
+    res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  }
+  else if(req.body.text === undefined) { //só vendo
     req.body.userInformation = await article.findById(req.query.id).populate("userId")
     res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
-  } else { res.render("tutoriais/tutorial-edit.hbs"), { error: "Falha ao criar o post" } }
+  }
+  else { //erro
+    res.render("tutoriais/tutorial-edit.hbs"), { error: "Falha ao criar o post" } 
+  }
 })
 
 //delete

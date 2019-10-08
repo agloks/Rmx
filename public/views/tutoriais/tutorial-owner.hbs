@@ -3,6 +3,12 @@
 <h1>{{this.userInformation.text}}</h1>
 <span>{{this.userInformation.userId.name}}</span>
 
+{{#if Article}}
+  <h1>{{this.title}}</h1>
+  <h1>{{this.text}}</h1>
+  <span>{{this.name}}</span>
+{{/if}}
+
 {{!-- caso error, recebera o error --}}
 {{#if error}}
 <h1>{{error}}</h1>
