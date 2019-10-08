@@ -31,7 +31,7 @@ router.post("/login/post",async (req, res) => {
         {
             maxAge:1000 * 60 * 2,//2 minutos
             httpOnly:false,//permiti que o cookie seja acessivel no front
-        }).render("tutoriais/tutorial-edit", sendControl[0])//precisamos manda o id para o hbs
+        }).render("tutoriais/tutorial-create", sendControl[0])//precisamos manda o id para o hbs
     } else {
         console.log("error no post login"+sendControl)
         res.redirect("/login")
