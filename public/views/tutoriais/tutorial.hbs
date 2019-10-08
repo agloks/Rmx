@@ -1,20 +1,41 @@
-<main class = "main-mid">
+<main class="main-mid">
+    <nav>
 
+    <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
+    <ul>
+      <li> <a href="/vitrine">Projects</a></li>
+      <li> <a href="/tutorial">Tutorials</a> </li>
+      <li> <a href="/forum">Comunity</a> </li>
+      <li> <a href="/login">Login</a> </li>
+      <li> <a href="/sign">Signup</a> </li>
 
-  {{#each allTutorial}}
-    <div>
-      esse texto {{this.text}} pertence
-      {{#if this.userId.name}}
-      <b>{{this.userId.name}}</b>
-      <img src="{{this.image}}" alt="Image Nao Foi">
-      {{else}}
-      <b>SEM NOME</b>
-      {{/if}}
+    </ul>
+
+  </nav>
+<form action="/tutorial/create">
+  <button type="submit"><p>+</p></button>
+</form>
+
+  {{!-- <a href="/tutorial/edit">CRIE SEU TUTORIAL</a> --}}
+
+ <div class="container">
+
+    <div class="row margin-all">
+
+      {{#each allTutorial}}
+      <div class="card bg-dark text-white col-3">
+        <img src="{{this.image}}" class="card-img" alt="...">
+        <div class="card-img-overlay">
+          <h5 class="card-title">{{this.text}}</h5>
+        </div>
+      </div>
+      {{/each}}
+
     </div>
-  {{/each}}
-  
+  </div>
+</main>
 
-  <a href="/tutorial/edit">CRIE SEU TUTORIAL</a>
+
 
 </main>
 
