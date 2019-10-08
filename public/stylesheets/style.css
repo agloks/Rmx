@@ -80,8 +80,7 @@ li > a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* height: 554px; */
-  height: 100%;
+  height: 554px;
 }
 
 .layout > h1 {
