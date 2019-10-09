@@ -28,26 +28,40 @@ router.get("/tutorial", async (req, res) => { // 1
 
 //Routa que leva a permitir cria o tutorial
 router.get("/tutorial/create", (req, res) => { //3
-  res.render("tutoriais/tutorial-edit.hbs")
+  res.render("tutoriais/tutorial-create.hbs")
 })
 
 //POST
 //pegamos o id do render sucess na rote_login
-router.post("/tutorial/edit", async (req, res) => { // 2
-  console.log( color.red(">>> To no tutorial post \n" + req.query.id ) );
+router.post("/tutorial/edit", async(req, res) => { // 2
+  console.log( color.red(">>> To no tutorial post edit \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
   if(req.body.text !== "" && req.body.text !== undefined)//criando
   {
     if(req.body.userId !== null) { req.body.Article = await createArticle(req.body) }//criando o tutorial se ele ta em texto e logado
     res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
-  }
-  else if(req.body.text === undefined) { //só vendo
-    req.body.userInformation = await article.findById(req.query.id).populate("userId")
-    res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
-  }
-  else { //erro
+  } else { //erro
     res.render("tutoriais/tutorial-edit.hbs"), { error: "Falha ao criar o post" } 
   }
+})
+
+router.post("/tutorial/create", async(req, res) => {
+  console.log( color.red(">>> To no tutorial post create \n" + req.query.id ) );
+  req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
+  if(req.body.text !== "" && req.body.text !== undefined)//criando
+  {
+    if(req.body.userId !== null) { req.body.Article = await createArticle(req.body) }//criando o tutorial se ele ta em texto e logado
+    res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  } else { //erro
+    res.render("tutoriais/tutorial-create.hbs"), { error: "Falha ao criar o post" } 
+  }
+})
+
+//AQUI SÓ VEMOS O RESULTADO ESPECIFICO, VINDO DE ALL TUTORIALs
+router.post("/tutorial/owner", async (req, res) => { // 2
+  console.log( color.red(">>> To no tutorial owner \n" + req.query.id ) );
+  req.body.userInformation = await article.findById(req.query.id).populate("userId")
+  res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
 })
 
 //delete

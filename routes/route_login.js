@@ -29,9 +29,10 @@ router.post("/login/post", async (req, res) => {
         let send = { permission: userControled.PERMISISION.join(""), id: sendControl[0]._id }
         res.cookie("Connection", send,
             {
-                maxAge: 1000 * 60 * 2,//2 minutos
+                maxAge: 1000 * 60 * 4,//4 minutos
                 httpOnly: false,//permiti que o cookie seja acessivel no front
-            }).render("tutoriais/tutorial-edit", sendControl[0])//precisamos manda o id para o hbs
+            }).redirect("/user-profile")
+            // .render("user/user.hbs", sendControl[0])//precisamos manda o id para o hbs
     } else {
         console.log("error no post login" + sendControl)
         res.redirect("/login")
