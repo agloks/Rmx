@@ -1,10 +1,13 @@
 <main class = "main-mid-create">
   <h1>Create your tutorial</h1>
   {{!-- temos o documento do user logado aqui --}}
+  <div class="tutorial-create-flex">
   <form action="/tutorial/create" method="POST">
-    <input type="text" name="title">
-    <textarea name = "text" id = "tutorial-text" name = "text" disabled="disabled" cols = 40 rows = 10></textarea>
+    <input type="text" name="title" placeholder="your title goes here...">
+    <textarea name = "text" id = "tutorial-text" name = "text" disabled="disabled" cols = 40 rows = 10 placeholder="your tutorial !!! "></textarea>
     <button type="submit"> CREATE </button>
   </form>
+
+  </div>
 
 </main>
