@@ -19,6 +19,6 @@ const CommentSchema = new Schema (
 //adicionando o esquelo no modelo do banco
 const comment = mongoose.model("comment", CommentSchema)
 
-// article.create(TestArticle).then((e) => console.log(e)).catch((e) => console.log(e))
+// comment.create({text:"Criado comment de ngm"}).then((e) => console.log(e)).catch((e) => console.log(e))
 
 module.exports = comment

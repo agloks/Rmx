@@ -3,37 +3,376 @@
     padding: 0px;
 }
 
-html {
-  font-size: 75%;  
+/* --HOME */
+
+/* navbar */
+nav {
+  display: flex;
+  background-color: rgba(34, 34, 47, 0.6);
+  height: 70px;
+  justify-content:  space-between;
+  align-items: center;
 }
 
-/* usando no index e tutorial para centralizar o main no meio */
-.main-mid {
+nav > ul {
+  display: flex;
+  flex-direction: row;
+  margin-top: 22px;
+}
+
+ul > li {
+  list-style: none;
+  padding-left: 10px;
+  padding-right: 15px; 
+}
+
+.logo {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  left: 30px;
+  bottom: 20px;
+  color: white;
+  font-weight: bold;
+  list-style: none;
+}
+
+.categories {
+  display: flex;
+  position: relative;
+  left: 650px;
+}
+
+.categories > li {
+  padding-left: 20px;
+  list-style: none;
+}
+
+li > a {
+  color: white;
+  text-decoration: none;
+}
+
+li > a:hover {
+  text-decoration: none;
+  color:lightgrey;
+}
+
+/* imagem de fundo da home */
+
+.image-home {
+  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  height: 100%;
+  animation: bgAnimation 15s ease infinite;
+}
+
+@keyframes bgAnimation { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* layout */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 12rem;
+}
+
+.layout > h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+form > button {
+  border-style: none;
+  border-radius: 50px;
+  background-color: rgba(34, 34, 47);
+}
+
+form > button:hover {
+  background-color: #323245
+}
+  button > p {
+  position: relative;
+  top: 8px;
+  padding: 1px 30px;
+  font-size: 18px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+
+/* END OF HOME */
+
+/* SIGN CSS */
+.sign {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  height: 50rem;
-  flex-flow: column;
+  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  height: 100vh;
+  animation: bgAnimation 15s ease infinite;
 }
 
-.main-mid > a {
-  margin-top: 4rem;
-  font-size: 1.8rem;
+@keyframes bgAnimation { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
-#tutorial-reply {
-  font-style: italic;
+.container-sign > img {
+  position: relative;
+  top: 20px;
 }
 
-textarea{
-  resize: none;
+.container-sign{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:  rgba(34, 34, 47, 0.8);
+  border-radius: 20px;
+  height: 550px;
+  width: 470px;
 }
 
-textarea:enabled {
-  background: white;
+.container-sign > form {
+  position: relative;
+  top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-textarea:disabled {
-  background: #dddddd;
+.container-sign > h2 {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  top: 25px;
+}
+
+/* .container-sign > h1 {
+  font-size: 60px;
+  color: white;
+  position: relative;
+  top: 30px;
+} */
+.container-sign > a {
+  position: relative;
+  bottom: -90px;
+  color: aqua;
+}
+
+.container-sign > a:hover {
+  text-decoration: none;
+  color: darkcyan;
+}
+
+form > label {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-sign {
+  position: relative;
+  top: 20px;
+  border-style: none;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.btn-sign:hover {
+  background-color: white;
+}
+
+.btn-sign > p {
+  font-size: 18px;
+  padding: 1px 10px;
+  color: black;
+  position: relative;
+  top: 8px;
+}
+
+/* SIGN END */
+
+/* LOGIN START */
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  height: 100vh;
+  animation: bgAnimation 15s ease infinite;
+}
+
+@keyframes bgAnimation { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.container-login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:  rgba(34, 34, 47, 0.8);
+  border-radius: 20px;
+  height: 500px;
+  width: 470px;
+}
+
+.container-login > img {
+  position: relative;
+  top: 20px;
+}
+
+.container-login > h2 {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  top: 25px;
+}
+
+.container-login > h1 {
+  font-size: 60px;
+  color: white;
+  position: relative;
+  top: 30px;
+}
+
+.container-login > form {
+  position: relative;
+  top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container-login > a {
+  position: relative;
+  bottom: -100px;
+  color: aqua;
+  }
+  
+.container-login > a:hover {
+  text-decoration: none;
+  color: darkcyan;
+  }
+
+.btn-login {
+  position: relative;
+  top: 20px;
+  border-style: none;
+  border-radius: 20px;
+  background-color: white;
+  }
+
+.btn-login:hover{
+  background-color: white;
+}
+  
+.btn-login > p {
+  font-size: 18px;
+  padding: 1px 10px;
+  color: black;
+  position: relative;
+  top: 8px;
+  }
+
+/* LOGIN END   */
+/* TUTORIALS START */
+.main-mid {
+  display: flex;
+  flex-direction: column;
+  background-size: 100%;
+  background-color:  rgba(34, 34, 47, 0.5);
+  background-image: linear-gradient(20deg, rgba(34, 34, 47, 0.2), rgba(34, 34, 47, 0.8) );
+}
+
+
+.main-mid > h1 {
+  display: flex;  
+  justify-content: center;
+  margin-top: 40px;
+  color: white;
+}
+
+.btn-tutorial {
+  margin-top: 80px;
+  background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
+  margin-left: 9rem;
+}
+
+.btn-tutorial:hover{
+  background-image: linear-gradient(35deg, orangered, orangered);
+}
+
+.btn-tutorial-id{
+  background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
+  border-radius: 10px;
+}
+
+.btn-tutorial-id:hover{
+  background-image: linear-gradient(35deg, orangered, orangered);
+}
+
+.btn-tutorial-id > p {
+  font-size: 12px;
+}
+
+h1 > span {
+  /* background-color: rgba(34, 34, 47, 0.6); */
+  color: white;
+  padding: 1px 15px;
+  border-radius: 50px;
+}
+.margin-all > div {
+  margin:35px;
+}
+
+.card-img-overlay{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-overlay > h2 {
+  margin-bottom: 100px;
+}
+
+form > .btn-tutorial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-tutorial{
+  background-color: rgba(34, 34, 47, 0.9) ;
+}
+
+.tutorial-bgc{
+ background-image: linear-gradient(35deg,#23a6d5, #23d5ab);
+ height: 100px;
+ display: flex;
+ align-items: center;
+}
+
+.tutorial-bgc > h1 {
+  color: white;
+  margin-left: 80px;
+  font-weight: lighter;
 }

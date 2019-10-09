@@ -1,0 +1,59 @@
+<main class="main-mid">
+    <nav class="nav-tutorial">
+
+    <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
+    <ul>
+      <li> <a href="/">Home</a></li>
+      <li> <a href="/vitrine">Projects</a></li>
+      <li> <a href="/tutorial">Tutorials</a> </li>
+      {{!-- <li> <a href="/forum">Comunity</a> </li> --}}
+      <li> <a href="/login">Login</a> </li>
+      <li> <a href="/sign">Signup</a> </li>
+
+    </ul>
+
+  </nav>
+
+<div class="tutorial-bgc">
+ <h1>Comunity Tutorials</h1>
+</div>
+  {{!-- <h1>Tutorials</h1> --}}
+<form action="/tutorial/create">
+  <button type="submit" class="btn-tutorial"><p>+ add a new tutorial</p></button>
+</form>
+
+  {{!-- <a href="/tutorial/edit">CRIE SEU TUTORIAL</a> --}}
+
+ <div class="container">
+
+    <div class="row margin-all">
+
+      {{#each allTutorial}}
+      <div class="card bg-dark text-white col-3">
+        <img src="{{this.image}}" class="card-img" alt="..." height="200">
+        <div class="card-img-overlay">
+          <h2 class="card-title"><form action="/tutorial/edit?id={{this._id}}" method="POST">
+          <button type="submit" class="btn-tutorial-id"><p>{{this.title}}</p></button></h2>
+          
+          </form>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
+</main>
+
+
+
+</main>
+
+
+{{!--
+  NAO COMETA ESSE ERRO DENOVO
+  {{#each allTutorial}}
+    {{#if this.userId.name}}
+      <div>Bem vindo {{this.userId.name}}</div>
+    {{/if}}
+  {{/each}}
+  <h1>{{userLogged}}</h1> --}}

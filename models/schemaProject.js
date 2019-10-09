@@ -8,6 +8,7 @@ const moment = require("moment")
 //criando esqueleto do documento project
 const ProjectSchema = new Schema (
   {
+    userId: Schema.Types.ObjectId,
     title: Schema.Types.Mixed,
     text: Schema.Types.Mixed,
     replyes:[ {type:Schema.Types.ObjectId, ref:"comment"} ],
@@ -18,15 +19,10 @@ const ProjectSchema = new Schema (
 )
 
 //tests
-const TestProject =
+const testProject =
   {
     title: "test",
     text: "sjiaiejifjaeif aefjaeifniae ifae ifaneifae ifneai",
-    // replyes:
-    // [{
-    //   text: "soamcmcanei fmeaimfao camoe",
-    //   timestamps: moment.utc("2019-10-06")
-    // }],
     likes: 2,
     time: moment.utc("2019-10-06")
   }
@@ -34,6 +30,6 @@ const TestProject =
 //adicionando o esquelo no modelo do banco
 const project = mongoose.model("project", ProjectSchema)
 
-// project.create(Testproject).then((e) => console.log(e)).catch((e) => console.log(e))
+// project.create(testProject).then((e) => console.log(e)).catch((e) => console.log(e))
 
 module.exports = project

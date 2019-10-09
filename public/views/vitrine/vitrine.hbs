@@ -1,0 +1,25 @@
+<main class = "main-mid">
+
+{{!--
+  NAO COMETA ESSE ERRO DENOVO
+  {{#each allTutorial}}
+    {{#if this.userId.name}}
+      <div>Bem vindo {{this.userId.name}}</div>
+    {{/if}}
+  {{/each}}
+  <h1>{{userLogged}}</h1> --}}
+
+  {{#each allProject}}
+    <div>
+      esse texto {{this.text}} pertence
+      {{#if this.userId.name}}
+      <b>{{this.userId.name}}</b>
+      {{else}}
+      <b>SEM NOME</b>
+      {{/if}}
+    </div>
+  {{/each}}
+
+  <a href="/vitrine/create">MOSTRE SEU PROJETO</a>
+
+</main>
