@@ -297,9 +297,16 @@ form > label {
 .main-mid {
   display: flex;
   flex-direction: column;
-  background-size: 100%;
-  background-color:  rgba(34, 34, 47, 0.5);
-  background-image: linear-gradient(20deg, rgba(34, 34, 47, 0.2), rgba(34, 34, 47, 0.8) );
+  background-size: 200%;
+  /* background-color:  rgba(34, 34, 47, 0.9); */
+  background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
+  animation: bgAnimation 15s ease infinite;
+}
+
+@keyframes bgAnimation { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 
@@ -314,6 +321,7 @@ form > label {
   margin-top: 80px;
   background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
   margin-left: 9rem;
+  border: 3px solid #22958e;
 }
 
 .btn-tutorial:hover{
@@ -361,7 +369,7 @@ form > .btn-tutorial{
 }
 
 .nav-tutorial{
-  background-color: rgba(34, 34, 47, 0.9) ;
+  background-color: rgba(34, 34, 47, 0.6) ;
 }
 
 .tutorial-bgc{
@@ -369,6 +377,7 @@ form > .btn-tutorial{
  height: 100px;
  display: flex;
  align-items: center;
+ box-shadow: 0px 4px rgba(34, 34, 47, 0.1);
 }
 
 .tutorial-bgc > h1 {
