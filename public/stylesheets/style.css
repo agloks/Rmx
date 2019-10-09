@@ -478,3 +478,42 @@ form > .btn-tutorial{
   justify-content: space-between;
   height: 20%;
 }
+
+
+/*---------------------------------- PARTE DO AXIOS FRONT, APAGAR ------------------------------*/
+/*---------------------------------- PARTE DO AXIOS FRONT, APAGAR ------------------------------*/
+/*---------------------------------- PARTE DO AXIOS FRONT, APAGAR ------------------------------*/
+/*---------------------------------- PARTE DO AXIOS FRONT, APAGAR ------------------------------*/
+#section-comments {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+}
+
+.div-comments {
+  color: white;
+}
+
+.div-comments-create {
+  order: -1;
+  align-self: flex-end;
+}
+
+#section-comments > form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+}
+
+#section-comments > form > * {
+  margin: 0.2em auto 1.2em auto;
+}
