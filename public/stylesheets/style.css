@@ -297,18 +297,11 @@ form > label {
 .main-mid {
   display: flex;
   flex-direction: column;
-  /* background-image: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab); */
-  background-size: 400% 400%;
-  background-color:rgba(34, 34, 47, 0.9);
-  /* height: 100vh; */
-  animation: bgAnimation 15s ease infinite;
+  background-size: 100%;
+  background-color:  rgba(34, 34, 47, 0.5);
+  background-image: linear-gradient(20deg, rgba(34, 34, 47, 0.2), rgba(34, 34, 47, 0.8) );
 }
 
-@keyframes bgAnimation { 
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
 
 .main-mid > h1 {
   display: flex;  
@@ -318,10 +311,68 @@ form > label {
 }
 
 .btn-tutorial {
-  background-image: linear-gradient(35deg, orangered, pink);
+  margin-top: 80px;
+  background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
+  margin-left: 9rem;
 }
 
+.btn-tutorial:hover{
+  background-image: linear-gradient(35deg, orangered, orangered);
+}
 
+.btn-tutorial-id{
+  background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
+  border-radius: 10px;
+}
+
+.btn-tutorial-id:hover{
+  background-image: linear-gradient(35deg, orangered, orangered);
+}
+
+.btn-tutorial-id > p {
+  font-size: 12px;
+}
+
+h1 > span {
+  /* background-color: rgba(34, 34, 47, 0.6); */
+  color: white;
+  padding: 1px 15px;
+  border-radius: 50px;
+}
 .margin-all > div {
-  margin:30px;
+  margin:35px;
+}
+
+.card-img-overlay{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-overlay > h2 {
+  margin-bottom: 100px;
+}
+
+form > .btn-tutorial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-tutorial{
+  background-color: rgba(34, 34, 47, 0.9) ;
+}
+
+.tutorial-bgc{
+ background-image: linear-gradient(35deg,#23a6d5, #23d5ab);
+ height: 100px;
+ display: flex;
+ align-items: center;
+}
+
+.tutorial-bgc > h1 {
+  color: white;
+  margin-left: 80px;
+  font-weight: lighter;
 }

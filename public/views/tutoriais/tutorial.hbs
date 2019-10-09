@@ -1,11 +1,12 @@
 <main class="main-mid">
-    <nav>
+    <nav class="nav-tutorial">
 
     <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
     <ul>
+      <li> <a href="/">Home</a></li>
       <li> <a href="/vitrine">Projects</a></li>
       <li> <a href="/tutorial">Tutorials</a> </li>
-      <li> <a href="/forum">Comunity</a> </li>
+      {{!-- <li> <a href="/forum">Comunity</a> </li> --}}
       <li> <a href="/login">Login</a> </li>
       <li> <a href="/sign">Signup</a> </li>
 
@@ -13,8 +14,10 @@
 
   </nav>
 
-  <h1>Tutorials</h1>
-  <hr>
+<div class="tutorial-bgc">
+ <h1>Comunity Tutorials</h1>
+</div>
+  {{!-- <h1>Tutorials</h1> --}}
 <form action="/tutorial/create">
   <button type="submit" class="btn-tutorial"><p>+ add a new tutorial</p></button>
 </form>
@@ -29,9 +32,9 @@
       <div class="card bg-dark text-white col-3">
         <img src="{{this.image}}" class="card-img" alt="..." height="200">
         <div class="card-img-overlay">
-          <h5 class="card-title">{{this.title}}</h5>
-          <form action="/tutorial/edit?id={{this._id}}" method="POST">
-          <button type="submit" class="btn-tutorial"><p>Look!</p></button>
+          <h2 class="card-title"><form action="/tutorial/edit?id={{this._id}}" method="POST">
+          <button type="submit" class="btn-tutorial-id"><p>{{this.title}}</p></button></h2>
+          
           </form>
         </div>
       </div>
