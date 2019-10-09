@@ -1,12 +1,31 @@
-<main>
- <a href="/user-profile/edit">EDITA</a>
-  
-  <img src="{{this.image}}" alt="image-user not found">
-  <h1>Login: {{this.login}}</h1>
-  <h1>Name: {{this.name}}</h1>
+<main class="main-user">
+  <nav class="nav-tutorial">
+
+    <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
+    <ul>
+      <li> <a href="/">Home</a></li>
+      <li> <a href="/vitrine">Projects</a></li>
+      <li> <a href="/tutorial">Tutorials</a> </li>
+      {{!-- <ffffffli> <a href="/forum">Comunity</a> </li> --}}
+      <li> <a href="/login">Login</a> </li>
+      <li> <a href="/sign">Signup</a> </li>
+
+    </ul>
+
+  </nav>
+  <div class="user-main-info">
+
+    <div class="user-icon">
+      <img src="{{this.image}}" alt="image-user not found">
+    </div>
+      <h1>{{this.name}}</h1>
+  </div>
+
+  <h1>{{this.name}}</h1>
   <h1>Role: {{this.role}}</h1>
 
   {{#if error}}
   <h1>{{error}}</h1>
   {{/if}}
+  <a href="/user-profile/edit">EDITA</a>
 </main>
