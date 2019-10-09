@@ -18,14 +18,19 @@
     <div class="user-icon">
       <img src="{{this.image}}" alt="image-user not found">
     </div>
-      <h1>{{this.name}}</h1>
+    <div class="user-flex">
+    <div class="user-name">
+      <h5>name:</h5>
+      <p>{{this.name}}</p>
+    </div>
+    <a href="/user-profile/edit">EDIT</a>
+    </div>
   </div>
-
-  <h1>{{this.name}}</h1>
-  <h1>Role: {{this.role}}</h1>
+  <div class="user-role">
+    <h1>{{this.role}}</h1>
+  </div>
 
   {{#if error}}
   <h1>{{error}}</h1>
   {{/if}}
-  <a href="/user-profile/edit">EDITA</a>
 </main>
