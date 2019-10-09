@@ -22,8 +22,13 @@
   <button id="comments-view">COMENTARIOS</butt>
 </main>
 
-<section id = "section-comments">
-  <h2 id = "h2-comment-tile"></h2>
-  <div id = "div-comments"></div>
+<section id="section-comments">
+  <h2 id="h2-comment-tile"></h2>
+  <div class="div-comments"></div>
+
+    <form action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
+      <textarea name="text" id="text-comment" cols="100" rows="6"></textarea>
+      <button type="submit" id="div-comments-create"> COMMENTE VOCE TAMBEM </button>
+    </form>
 
 </section>
