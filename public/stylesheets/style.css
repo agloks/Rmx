@@ -357,18 +357,19 @@ h1 > span {
   padding: 1px 15px;
   border-radius: 50px;
 }
+/* 
 .margin-all > div {
-  /* margin:35px; */
-}
+  margin:35px;
+} */
 
-.card-img-overlay{
+/* .card-img-overlay{
   display: flex;
   flex-direction: column;
   justify-content: cenrials
   Login
   Signupter;
   align-items: center;
-}
+} */
 
 .card-img-overlay > h2 {
   margin-bottom: 100px;
@@ -458,13 +459,14 @@ form > .btn-tutorial{
 
 .user-icon{
   background-color:  rgba(34, 34, 47, 0.4);
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
+  height: 120px;
+  width: 120px;
+  border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 20px;
+  border: 2px solid white;
 }
 
 .user-icon > img {
@@ -476,5 +478,58 @@ form > .btn-tutorial{
   box-shadow: 0px 4px rgba(34, 34, 47, 0.1);
   display: flex;
   justify-content: space-between;
-  height: 20%;
+  align-items: center;
+  height: 180px;
+}
+
+.user-flex > a {
+  text-decoration: none;
+  margin-right: 50px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 2px 10px;
+  box-shadow: 6px 4px rgba(34, 34, 47, 0.1);
+}
+
+.user-flex > a:hover{
+  padding: 4px 15px;
+}
+
+.user-name {
+  font-size: 40px;
+  color: white;
+  line-height: 30px;
+}
+
+.user-flex {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  align-items: center;
+  width: 80%;
+  margin-left: 50px;
+}
+
+.user-role {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(34, 34, 47, 0.1); */
+  height: 300px;
+}
+
+.user-role > h1 {
+  background-image: linear-gradient(-45deg,#1A7DED, #23d5ab);
+  border-radius: 10px;
+  background-size: 100%;
+  box-shadow: 8px 5px rgba(34, 34, 47, 0.4);
+  color: white;
+  font-size: 60px;
+  padding: 10px;
+}
+
+.user-role > h1:hover {
+  font-size: 63px;
+  box-shadow: 10px 7px rgba(34, 34, 47, 0.3);
 }
