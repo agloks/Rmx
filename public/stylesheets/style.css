@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+body, html{
+  height: auto;
+}
+
 /* --HOME */
 
 /* navbar */
@@ -298,6 +302,7 @@ form > label {
   display: flex;
   flex-direction: column;
   background-size: 200%;
+  /* height: 100%; */
   /* background-color:  rgba(34, 34, 47, 0.9); */
   background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
   animation: bgAnimation 15s ease infinite;
@@ -317,11 +322,16 @@ form > label {
   color: white;
 }
 
+/* .btn-tutorial-flex {
+  display: flex;
+} */
+
 .btn-tutorial {
-  margin-top: 80px;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  margin-left: 54rem;
   background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
-  margin-left: 9rem;
-  border: 3px solid #22958e;
+  border: 3px solid #1f9eb8;
 }
 
 .btn-tutorial:hover{
@@ -348,13 +358,15 @@ h1 > span {
   border-radius: 50px;
 }
 .margin-all > div {
-  margin:35px;
+  /* margin:35px; */
 }
 
 .card-img-overlay{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: cenrials
+  Login
+  Signupter;
   align-items: center;
 }
 
@@ -384,4 +396,24 @@ form > .btn-tutorial{
   color: white;
   margin-left: 80px;
   font-weight: lighter;
+}
+
+/* TUTORIALS END */
+
+/* CREATE A TUTORIAL START*/
+
+.main-mid-create{
+ /* background-color:  rgba(34, 34, 47, 0.9); */
+ background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
+ height: 100%;
+}
+
+.main-mid-create > h1 {
+  background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
+  text-align: center;
+}
+
+.tutorial-create-flex{
+  display: flex;
+  justify-content: center;
 }
