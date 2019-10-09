@@ -13,6 +13,7 @@ if(document.getElementsByTagName("textarea").length) { enabledTextArea() }
 
 // let comments = document.getElementById("comments-view").onclick = commentsShow
 
+
 async function commentsShow() {
   let comments = document.getElementById("div-comments")
   let section = document.getElementById("section-comments")
@@ -22,8 +23,8 @@ async function commentsShow() {
   let routeComment = document.URL.replace(/tutorial\/owner?/,"comments-tutorial/view")
   const axiosComment = await axios.get(routeComment)
 
-  //main
-  main.style.position = "absolute"
+   //main
+   main.style.position = "absolute"
   
   //section
   section.style.width = "100rem"
@@ -35,8 +36,6 @@ async function commentsShow() {
   //div do commentario
   comments.style.color = "white"
   comments.innerHTML = axiosComment.data.text
-
-  
 
   console.log(routeComment)
   console.log(axiosComment)
