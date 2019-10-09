@@ -23,6 +23,7 @@ express.use(bodyParser.urlencoded({extended:true}))
 //Setando rota para o express
 const router_vitrine = require("./routes/route_vitrine.js")
 const router_tutorial = require("./routes/router_tutorial.js")
+const router_comments = require("./routes/route_comentario.js")
 const router_forum = require("./routes/route_forum.js")
 const router_login = require("./routes/route_login.js")
 const router_user = require("./routes/route_user.js")
