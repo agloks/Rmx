@@ -29,7 +29,7 @@ router.post("/login/post", async (req, res) => {
         let send = { permission: userControled.PERMISISION.join(""), id: sendControl[0]._id }
         res.cookie("Connection", send,
             {
-                maxAge: 1000 * 60 * 10,//10 minutos
+                maxAge: 1000 * 60 * (60 * 24),//60 minutos * 24h
                 httpOnly: false,//permiti que o cookie seja acessivel no front
             }).redirect("/user-profile")
             // .render("user/user.hbs", sendControl[0])//precisamos manda o id para o hbs
