@@ -321,7 +321,7 @@ form > label {
   margin-top: 80px;
   background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
   margin-left: 9rem;
-  border: 3px solid #22958e;
+  border: 3px solid rgba(34, 34, 47, 0.1);
 }
 
 .btn-tutorial:hover{
