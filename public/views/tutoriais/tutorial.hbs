@@ -1,12 +1,12 @@
 <main class="main-mid">
-    <nav class="nav-tutorial">
+  <nav class="nav-tutorial">
 
     <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
     <ul>
       <li> <a href="/">Home</a></li>
       <li> <a href="/vitrine">Projects</a></li>
       <li> <a href="/tutorial">Tutorials</a> </li>
-      {{!-- <li> <a href="/forum">Comunity</a> </li> --}}
+      {{!-- <ffffffli> <a href="/forum">Comunity</a> </li> --}}
       <li> <a href="/login">Login</a> </li>
       <li> <a href="/sign">Signup</a> </li>
 
@@ -14,33 +14,44 @@
 
   </nav>
 
-<div class="tutorial-bgc">
- <h1>Comunity Tutorials</h1>
-</div>
+  <div class="tutorial-bgc">
+    <h1>Comunity Tutorials</h1>
+  </div>
   {{!-- <h1>Tutorials</h1> --}}
-<form action="/tutorial/create">
-  <button type="submit" class="btn-tutorial"><p>+ add a new tutorial</p></button>
-</form>
+  <div class="btn-tutorial-flex">
+  <form action="/tutorial/create">
+    <button  data-aos="fade-right" type="submit" class="btn-tutorial">
+      <p>+ add a new tutorial</p>
+    </button>
+  </form>
+
+  </div>
 
   {{!-- <a href="/tutorial/edit">CRIE SEU TUTORIAL</a> --}}
 
- <div class="container">
+  <div class="container">
 
-    <div class="row margin-all">
+    <div class="row d-flex justify-content-around">
 
       {{#each allTutorial}}
-      <div class="card bg-dark text-white col-3">
+      <div data-aos="fade-right" class="card bg-dark text-white col-md-3 col-8 my-2 mx-2">
         <img src="{{this.image}}" class="card-img" alt="..." height="200">
         <div class="card-img-overlay">
-          <h2 class="card-title"><form action="/tutorial/owner?id={{this._id}}" method="POST">
-          <button type="submit" class="btn-tutorial-id"><p>{{this.title}}</p></button></h2>
-          
+          <h2 class="card-title">
+            <form action="/tutorial/owner?id={{this._id}}" method="POST">
+              <button type="submit" class="btn-tutorial-id">
+                <p>{{this.title}}</p>
+              </button>
+          </h2>
+
           </form>
         </div>
       </div>
       {{/each}}
 
+
     </div>
+    
   </div>
 </main>
 
