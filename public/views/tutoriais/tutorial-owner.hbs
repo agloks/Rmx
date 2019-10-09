@@ -1,19 +1,29 @@
-{{!-- propiedades do tutorial criado --}}
-{{!-- {{#each }} --}}
-<h1>{{this.userInformation.text}}</h1>
-<span>{{this.userInformation.userId.name}}</span>
+<main id="main-owner-tutorial">
+  {{!-- userInformation é só o article --}}
+  {{!-- userInformation.userId é a informação do article do usuario --}}
+  <h1>{{this.userInformation.text}}</h1>
+  <span>{{this.userInformation.userId.name}}</span>
 
-{{#if Article}}
+  {{#if Article}}
   <h1>{{this.title}}</h1>
   <h1>{{this.text}}</h1>
   <span>{{this.name}}</span>
-{{/if}}
+  {{/if}}
 
-{{!-- caso error, recebera o error --}}
-{{#if error}}
-<h1>{{error}}</h1>
-{{/if}}
+  {{!-- caso error, recebera o error --}}
+  {{#if error}}
+  <h1>{{error}}</h1>
+  {{/if}}
 
   <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
-    <button type="submit"> REMOVE </button>
+    <button type="submit" id="button-remove-owner"> REMOVE </button>
   </form>
+
+  <button id="comments-view">COMENTARIOS</butt>
+</main>
+
+<section id = "section-comments">
+  <h2 id = "h2-comment-tile"></h2>
+  <div id = "div-comments"></div>
+
+</section>
