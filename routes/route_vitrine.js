@@ -117,6 +117,10 @@ router.get("/vitrine/create", (req, res) => { //3
 router.post("/vitrine/edit", async(req, res) => { // 2
   console.log( color.red(">>> To no vitrine post edit \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
+
+  // const findProject = await project.findById(idVitrineRemove)
+  // const enableEdit = (findProject.userId == req.body.userId)
+
   if(req.body.text !== "" && req.body.title !== "" )//criando
   {
     if(req.body.userId !== null) { req.body.Project = await createProject(req.body) }//criando o tutorial se ele ta em texto e logado
@@ -133,7 +137,7 @@ router.post("/vitrine/create", async(req, res) => {
   {
     console.log("ele")
     if(req.body.userId !== null) { req.body.Project = await createProject(req.body) }//criando o tutorial se ele ta em texto e logado
-    res.render("vitrine/vitrine-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+    res.redirect("/vitrine") //mandamos para o hbs o objeto para manipular
   } else { //erro
     res.render("vitrine/vitrine-create.hbs", { error: "Falha ao criar o projeto, preencha os campo corretamente" }) 
   }
@@ -147,15 +151,19 @@ router.post("/vitrine/owner", async (req, res) => { // 2
 })
 
 //delete
-router.post("/vitrine/remove" , (req, res) => {
+router.post("/vitrine/remove" , async (req, res) => {
   let idVitrineRemove = req.query.id
   console.log( "to na routa post remove Vitrine " + idVitrineRemove)
+  req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
 
-  if(idVitrineRemove) {
+  const findProject = await project.findById(idVitrineRemove)
+  const enableRemove = (findProject.userId == req.body.userId)
+
+  if(idVitrineRemove && enableRemove) {
     project.findByIdAndRemove(idVitrineRemove)
     .then((s) => console.log(s))
     .catch((e) => console.log(e))
   }
 
-  res.send("edit sucess")
+  res.redirect("/vitrine")
 })
