@@ -49,15 +49,8 @@
   <h1>{{error}}</h1>
   {{/if}}
 
-  <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
-    <button type="submit" id="button-remove-owner"> REMOVE </button>
-  </form>
-
   {{!-- <h1>{{this.userInformation}}</h1> --}}
   <a href="/tutorial/editView?id={{this.userInformation._id}}">EDIT</a>
-
-  <button id="comments-view">COMENTARIOS</butt>
-</main>
 
 <section id="section-comments">
   <button class="exit-comments">EXIT</button>
