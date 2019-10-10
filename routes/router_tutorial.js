@@ -45,7 +45,7 @@ router.post("/tutorial/edit", async(req, res) => { // 2
   const findArticle = await article.findById(req.query.id)
   const enableEdit = (findArticle.userId == req.body.userId)
 
-  if(req.body.text !== "" && req.body.title !== "" && enableEdit)//criando
+  if((req.body.text !== "") && (req.body.title !== "") && (enableEdit) && (req.body.userId !== null))//criando
   {
     if(req.body.userId !== null) { req.body.Article = await article.findByIdAndUpdate(req.query.id, req.body) }//criando o tutorial se ele ta em texto e logado
     res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
@@ -57,7 +57,7 @@ router.post("/tutorial/edit", async(req, res) => { // 2
 router.post("/tutorial/create", async(req, res) => {
   console.log( color.red(">>> To no tutorial post create \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
-  if(req.body.text !== "" && req.body.title !== "" )//criando
+  if((req.body.text !== "") && (req.body.title !== "") && (req.body.userId !== null))//criando
   {
     if(req.body.userId !== null) { req.body.Article = await createArticle(req.body) }//criando o tutorial se ele ta em texto e logado
     res.redirect("/tutorial") //mandamos para o hbs o objeto para manipular
