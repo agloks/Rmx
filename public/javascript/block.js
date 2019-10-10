@@ -11,24 +11,19 @@ function enabledTextArea() {
 
 if(document.getElementsByTagName("textarea").length) { enabledTextArea() }
 
-// let comments = document.getElementById("comments-view").onclick = commentsShow
 
-function * changeStatusCommentsShowOn() {
-    var n = 0
-    while(true){
-      yield ++n
-    }
-}
-
-var commentsShowOn = changeStatusCommentsShowOn()
-
-
-async function commentsShow() {
-  commentsShowOn.next()
+async function commentsShowTutorial() {
 
   let comments = document.getElementsByClassName("div-comments")[0]
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
+  let divHide = document.getElementsByClassName("view-erase")[0]
+
+  // section.style.width = divHide.childNodes[0].childNodes[1].next
+  // section.style.height = divHide.clientHeight
+
+  //div-hide
+  divHide.style.display = "none"
   
   //pegando o id do article
   let routeComment = document.URL.replace(/tutorial\/owner?/,"comments-tutorial/view")
@@ -49,10 +44,67 @@ async function commentsShow() {
     section.append(newDiv)
   }
 
-  console.log(routeComment)
-  console.log(axiosComment)
+  // console.log(routeComment)
+  // console.log(axiosComment)
 }
 
-if(commentsShowOn.next().value % 2 === 0) { commentsShow() }
+if(document.getElementById("comments-view") !== null) {
+  document.getElementById("comments-view").onclick = commentsShowTutorial
+}
 
-document.getElementById("comments-view").onclick = commentsShow
+async function commentsShowVitrine() {
+
+  let comments = document.getElementsByClassName("div-comments")[0]
+  let section = document.getElementById("section-comments")
+  let main = document.getElementById("main-owner-tutorial")
+  let divHide = document.getElementsByClassName("view-erase")[0]
+  
+  //pegando o id do article
+  let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-project/view")
+  const axiosComment = await axios.get(routeComment)
+
+  //div-hide
+  divHide.style.display = "none"
+
+  //main
+  main.style.position = "absolute"
+  
+  //section
+  section.style.display = "flex"
+
+  //div do commentario
+  for(let textInArrayComments of axiosComment.data.replyes)
+  {
+    let newDiv = document.createElement("div")
+    newDiv.setAttribute("class","div-comments")
+    newDiv.innerHTML = await textInArrayComments.text
+    section.append(newDiv)
+  }
+
+  // console.log(routeComment)
+  // console.log(axiosComment)
+}
+
+
+let sectionComments = document.getElementById("section-comments")
+let exitComments = document.getElementsByClassName("exit-comments")[0]
+// sectionComments.children
+if(sectionComments.style.display !== "flex") {
+  exitComments.onclick = () => {
+    let divs = sectionComments.getElementsByTagName("div")
+    let divHide = document.getElementsByClassName("view-erase")[0]
+    // console.log(divs)
+    let count = 0
+    while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
+      sectionComments.removeChild(divs[count])
+      count += 1
+      // console.log(divs)
+    if(divs.length === 0) { sectionComments.style.display = "none" }
+    divHide.style.display = "flex"
+  }
+}
+
+
+if(document.getElementById("comments-view-vitrine") !== null) {
+  document.getElementById("comments-view-vitrine").onclick = commentsShowVitrine
+}

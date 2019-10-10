@@ -13,12 +13,18 @@
             <input type="text" name="name" id="name" placeholder="your username">
 
             <label for="password"> *Password </label>
-            <input type="text" name="password" id="password" placeholder="********">
+            <input type="password" name="password" id="password" placeholder="********">
 
             <button type="submit" class="btn-sign">
                 <p>Submit</p>
             </button>
         </form>
-    <a href="/">back to home</a>
+
+        <a href="/">back to home</a>
     </div>
+
+        {{#if error}}
+        <p>{{error}}</p>
+        {{/if}}
+
 </div>
