@@ -3,3 +3,7 @@
     <textarea name = "text" id = "tutorial-text" name = "text" disabled="disabled" cols = 100 rows = 20></textarea>
     <button type="submit"> UPDATE </button>
   </form>
+
+{{#if error}}
+  <h1>{{error}}</h1>
+{{/if}}

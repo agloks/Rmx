@@ -2,3 +2,7 @@
     <textarea name = "text" id = "vitrine-text" name = "text" disabled="disabled" cols = 100 rows = 20></textarea>
     <button type="submit"> SUBMIT </button>
   </form>
+
+{{#if error}}
+  <h1>{{error}}</h1>
+{{/if}}

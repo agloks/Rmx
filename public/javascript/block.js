@@ -14,7 +14,7 @@ if(document.getElementsByTagName("textarea").length) { enabledTextArea() }
 // let comments = document.getElementById("comments-view").onclick = commentsShow
 
 
-async function commentsShow() {
+async function commentsShowTutorial() {
 
   let comments = document.getElementsByClassName("div-comments")[0]
   let section = document.getElementById("section-comments")
@@ -59,4 +59,36 @@ if(sectionComments.style.display !== "flex") {
   }
 }
 
-document.getElementById("comments-view").onclick = commentsShow
+document.getElementById("comments-view").onclick = commentsShowTutorial
+
+
+async function commentsShowVitrine() {
+
+  let comments = document.getElementsByClassName("div-comments")[0]
+  let section = document.getElementById("section-comments")
+  let main = document.getElementById("main-owner-tutorial")
+  
+  //pegando o id do article
+  let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-vitrine/view")
+  const axiosComment = await axios.get(routeComment)
+
+  //main
+  main.style.position = "absolute"
+  
+  //section
+  section.style.display = "flex"
+
+  //div do commentario
+  for(let textInArrayComments of axiosComment.data.replyes)
+  {
+    let newDiv = document.createElement("div")
+    newDiv.setAttribute("class","div-comments")
+    newDiv.innerHTML = await textInArrayComments.text
+    section.append(newDiv)
+  }
+
+  // console.log(routeComment)
+  // console.log(axiosComment)
+}
+
+document.getElementById("comments-view-vitrine").onclick = commentsShowTutorial

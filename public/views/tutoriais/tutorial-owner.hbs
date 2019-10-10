@@ -1,4 +1,4 @@
-<main class="main-owner-tutorial">
+<main id="main-owner-tutorial">
   {{!-- userInformation é só o article --}}
   {{!-- userInformation.userId é a informação do article do usuario --}}
   <nav class="nav-tutorial">
@@ -18,6 +18,8 @@
   <h1>{{this.userInformation.title}}</h1>
   <p>{{this.userInformation.text}}</p>
   <span>{{this.userInformation.userId.name}}</span>
+
+  {{!-- quando o cara vem pelo create, não pelo tutorial all --}}
   {{#if Article}}
   <h1>{{this.title}}</h1>
   <h1>{{this.text}}</h1>
