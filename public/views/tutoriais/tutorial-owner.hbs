@@ -57,10 +57,12 @@
 
   <h2 id="h2-comment-tile"></h2>
   <div class="div-comments"></div>
+<div class="comment-bar">
 
-  <form action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
+  <form class='comment-space' action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
     <textarea name="text" id="text-comment" cols="100" rows="6"></textarea>
-    <button type="submit" id="div-comments-create"> COMMENTE VOCE TAMBEM </button>
+    <button type="submit"> <p class="comment">COMMENTE</p></button>
   </form>
+</div>
 
 </section>
