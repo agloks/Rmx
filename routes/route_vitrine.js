@@ -7,7 +7,7 @@ const project = require("../models/schemaProject.js")
 //FUNCÕES
 //Função para cria o tutorial
 async function createProject(reqs) {
-  let foundProject = project.create(reqs).then((s) => {return s}).catch((e) => console.log(e))
+  let foundProject = project.create(reqs).then((s) => {console.log(s)}).catch((e) => console.log(e))
   return foundProject
 } 
 
@@ -18,9 +18,10 @@ router.get("/vitrine", async (req, res) => { // 1
   //vemos se o usuario ta logado
   let idUserOwner = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
   if(idUserOwner !== null) {
-    console.log(idUserOwner)
     //PRECISAMOS MEXER AQUI, PARA QUE QUANDO ELE TIVER LOGADO O QUE ELE PODERA FAZER?
     var allProject = await project.find().populate("userId") // array de todos os documentos achado
+    // console.log(allProject)
+    // console.log(idUserOwner)
   }
   else{ var allProject = await project.find().populate("userId") }//DEFAULT MOSTRAMOS A QUEM PERTENCE O TEXTO
   res.render("vitrine/vitrine.hbs", {allProject} )
@@ -36,6 +37,10 @@ router.get("/vitrine/create", (req, res) => { //3
 router.post("/vitrine/edit", async(req, res) => { // 2
   console.log( color.red(">>> To no vitrine post edit \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
+
+  // const findProject = await project.findById(idVitrineRemove)
+  // const enableEdit = (findProject.userId == req.body.userId)
+
   if(req.body.text !== "" && req.body.title !== "" )//criando
   {
     if(req.body.userId !== null) { req.body.Project = await createProject(req.body) }//criando o tutorial se ele ta em texto e logado
@@ -50,9 +55,8 @@ router.post("/vitrine/create", async(req, res) => {
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
   if(req.body.text !== "" && req.body.title !== "" )//criando
   {
-    console.log("ele")
-    if(req.body.userId !== null) { req.body.Project = await createProject(req.body) }//criando o tutorial se ele ta em texto e logado
-    res.render("vitrine/vitrine-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+    if(req.body.userId !== null) { await createProject(req.body) }//criando o tutorial se ele ta em texto e logado
+    res.redirect("/vitrine") //mandamos para o hbs o objeto para manipular
   } else { //erro
     res.render("vitrine/vitrine-create.hbs", { error: "Falha ao criar o projeto, preencha os campo corretamente" }) 
   }
@@ -66,15 +70,19 @@ router.post("/vitrine/owner", async (req, res) => { // 2
 })
 
 //delete
-router.post("/vitrine/remove" , (req, res) => {
+router.post("/vitrine/remove" , async (req, res) => {
   let idVitrineRemove = req.query.id
   console.log( "to na routa post remove Vitrine " + idVitrineRemove)
+  req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
 
-  if(idVitrineRemove) {
+  const findProject = await project.findById(idVitrineRemove)
+  const enableRemove = (findProject.userId == req.body.userId)
+
+  if(idVitrineRemove && enableRemove) {
     project.findByIdAndRemove(idVitrineRemove)
     .then((s) => console.log(s))
     .catch((e) => console.log(e))
   }
 
-  res.send("edit sucess")
+  res.redirect("/vitrine")
 })

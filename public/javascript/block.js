@@ -11,8 +11,6 @@ function enabledTextArea() {
 
 if(document.getElementsByTagName("textarea").length) { enabledTextArea() }
 
-// let comments = document.getElementById("comments-view").onclick = commentsShow
-
 
 async function commentsShowTutorial() {
 
@@ -43,24 +41,9 @@ async function commentsShowTutorial() {
   // console.log(axiosComment)
 }
 
-let sectionComments = document.getElementById("section-comments")
-let exitComments = document.getElementsByClassName("exit-comments")[0]
-// sectionComments.children
-if(sectionComments.style.display !== "flex") {
-  exitComments.onclick = () => {
-    let divs = sectionComments.getElementsByTagName("div")
-    console.log(divs)
-    let count = 0
-    while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
-      sectionComments.removeChild(divs[count])
-      count += 1
-      console.log(divs)
-    if(divs.length === 0) { sectionComments.style.display = "none" }
-  }
+if(document.getElementById("comments-view") !== null) {
+  document.getElementById("comments-view").onclick = commentsShowTutorial
 }
-
-document.getElementById("comments-view").onclick = commentsShowTutorial
-
 
 async function commentsShowVitrine() {
 
@@ -69,7 +52,7 @@ async function commentsShowVitrine() {
   let main = document.getElementById("main-owner-tutorial")
   
   //pegando o id do article
-  let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-vitrine/view")
+  let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-project/view")
   const axiosComment = await axios.get(routeComment)
 
   //main
@@ -91,4 +74,24 @@ async function commentsShowVitrine() {
   // console.log(axiosComment)
 }
 
-document.getElementById("comments-view-vitrine").onclick = commentsShowTutorial
+
+let sectionComments = document.getElementById("section-comments")
+let exitComments = document.getElementsByClassName("exit-comments")[0]
+// sectionComments.children
+if(sectionComments.style.display !== "flex") {
+  exitComments.onclick = () => {
+    let divs = sectionComments.getElementsByTagName("div")
+    // console.log(divs)
+    let count = 0
+    while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
+      sectionComments.removeChild(divs[count])
+      count += 1
+      // console.log(divs)
+    if(divs.length === 0) { sectionComments.style.display = "none" }
+  }
+}
+
+
+if(document.getElementById("comments-view-vitrine") !== null) {
+  document.getElementById("comments-view-vitrine").onclick = commentsShowVitrine
+}
