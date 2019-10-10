@@ -655,8 +655,6 @@ h1 > span {
 #section-comments {
   display: none;
   width: 100%;
-  height: auto;
-  min-height: 100%;
   position: absolute;
   background: rgba(0, 0, 0, 0.9);
   z-index: 1;
@@ -664,6 +662,8 @@ h1 > span {
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
+  min-height: 64%;
+  top: 36%;
 }
 
 .exit-comments {

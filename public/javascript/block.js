@@ -17,6 +17,10 @@ async function commentsShowTutorial() {
   let comments = document.getElementsByClassName("div-comments")[0]
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
+  let divHide = document.getElementsByClassName("view-erase")[0]
+
+  //div-hide
+  divHide.style.display = "none"
   
   //pegando o id do article
   let routeComment = document.URL.replace(/tutorial\/owner?/,"comments-tutorial/view")
@@ -50,10 +54,14 @@ async function commentsShowVitrine() {
   let comments = document.getElementsByClassName("div-comments")[0]
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
+  let divHide = document.getElementsByClassName("view-erase")[0]
   
   //pegando o id do article
   let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-project/view")
   const axiosComment = await axios.get(routeComment)
+
+  //div-hide
+  divHide.style.display = "none"
 
   //main
   main.style.position = "absolute"
@@ -81,6 +89,7 @@ let exitComments = document.getElementsByClassName("exit-comments")[0]
 if(sectionComments.style.display !== "flex") {
   exitComments.onclick = () => {
     let divs = sectionComments.getElementsByTagName("div")
+    let divHide = document.getElementsByClassName("view-erase")[0]
     // console.log(divs)
     let count = 0
     while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
@@ -88,6 +97,7 @@ if(sectionComments.style.display !== "flex") {
       count += 1
       // console.log(divs)
     if(divs.length === 0) { sectionComments.style.display = "none" }
+    divHide.style.display = "flex"
   }
 }
 
