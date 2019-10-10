@@ -9,7 +9,7 @@ const moment = require("moment")
 const ProjectSchema = new Schema (
   {
     image: {type: String, default: "images/tutorial/qaglock.jpg"},
-    userId: Schema.Types.ObjectId,
+    userId: {type: Schema.Types.ObjectId, ref: "user"},
     title: {type: Schema.Types.Mixed, default: 'No title'},
     text: Schema.Types.Mixed,
     replyes:[ {type:Schema.Types.ObjectId, ref:"comment"} ],
