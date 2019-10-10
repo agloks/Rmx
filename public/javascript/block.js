@@ -19,6 +19,9 @@ async function commentsShowTutorial() {
   let main = document.getElementById("main-owner-tutorial")
   let divHide = document.getElementsByClassName("view-erase")[0]
 
+  section.style.width = divHide.clientWidth
+  section.style.height = divHide.clientHeight
+
   //div-hide
   divHide.style.display = "none"
   
