@@ -3,16 +3,17 @@ const Schema = mongoose.Schema
 const moment = require("moment")
 
 //conexao
-// mongoose.connect('mongodb://localhost:27017/myapp', { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))
+// mongoose.connect('mongodb://localhost:27017/rmx', { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))
 
 //criando esqueleto do documento usuario
 const UserSchema = new Schema (
   {
+  image:{type: String, default: "images/user/buddypoke_user_default.png"},
   name: String ,
   login: { type:Schema.Types.Mixed, unique: true, required: true } ,
   password: { type: Schema.Types.Mixed, required: true },
   role: String,
-  image:{type: String, default: "images/user/buddypoke_user_default.png"}
+  about: { type:Schema.Types.Mixed, default:" "}
   },
   { timestamps:true }
 )

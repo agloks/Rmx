@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const moment = require("moment")
 
 //conexao
-// mongoose.connect('mongodb://localhost:27017/myapp', { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))
+// mongoose.connect('mongodb://localhost:27017/rmx', { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))
 
 //criando esqueleto do documento project
 const ProjectSchema = new Schema (

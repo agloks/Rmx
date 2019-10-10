@@ -31,9 +31,15 @@
   <h1>{{error}}</h1>
   {{/if}}
 
+  {{id}}
+
   <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
     <button type="submit" id="button-remove-owner"> REMOVE </button>
   </form>
+
+  {{!-- <h1>{{this.userInformation}}</h1> --}}
+  <a href="/tutorial/editView?id={{this.userInformation._id}}">EDIT</a>
+
 
   <button id="comments-view">COMENTARIOS</butt>
 </main>
@@ -44,7 +50,7 @@
   <h2 id="h2-comment-tile"></h2>
   <div class="div-comments"></div>
 
-    <form action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
+    <form action="/comments-tutorial/create?id={{this.userInformation._id}}" method="POST">
       <textarea name="text" id="text-comment" cols="100" rows="6"></textarea>
       <button type="submit" id="div-comments-create"> COMMENTE VOCE TAMBEM </button>
     </form>
