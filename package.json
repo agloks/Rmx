@@ -1,9 +1,6 @@
 {
   "name": "remixantes",
   "version": "1.0.0",
-  "engines": {
-	"node": "12.10.0",
-  },
   "description": "Test Productions",
   "main": "index.js",
   "scripts": {
@@ -23,5 +20,6 @@
     "hbs": "^4.0.5",
     "moment": "^2.24.0",
     "mongoose": "^5.7.3",
+    "nodemon": "^1.19.3"
   }
 }
