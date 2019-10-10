@@ -32,9 +32,9 @@ router.post("/sign", async (req, res) => {
       reqSave.role = "Remixante" // passamos a sua role default
       await newUser(reqSave)
       res.redirect("/login")
-    } else { res.render("login&&sign/sign.hbs", {fail : `falha para registrar, verificar se os campos tao registrado corretamente`} ) } 
+    } else { res.render("login&&sign/sign.hbs", {error : `falha ao registrar, verificar se os campos tao registrado corretamente`} ) } 
   } catch (error) {
     console.log("error found sign " + error)  
-    res.render("login&&sign/sign.hbs", {fail : "login ja existe"} )
+    res.render("login&&sign/sign.hbs", {error : "login ja existe"} )
   }
 })

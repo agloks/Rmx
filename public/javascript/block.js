@@ -13,18 +13,8 @@ if(document.getElementsByTagName("textarea").length) { enabledTextArea() }
 
 // let comments = document.getElementById("comments-view").onclick = commentsShow
 
-function * changeStatusCommentsShowOn() {
-    var n = 0
-    while(true){
-      yield ++n
-    }
-}
 
-var commentsShowOn = changeStatusCommentsShowOn()
-
-
-async function commentsShow() {
-  commentsShowOn.next()
+async function commentsShowTutorial() {
 
   let comments = document.getElementsByClassName("div-comments")[0]
   let section = document.getElementById("section-comments")
@@ -49,10 +39,56 @@ async function commentsShow() {
     section.append(newDiv)
   }
 
-  console.log(routeComment)
-  console.log(axiosComment)
+  // console.log(routeComment)
+  // console.log(axiosComment)
 }
 
-if(commentsShowOn.next().value % 2 === 0) { commentsShow() }
+let sectionComments = document.getElementById("section-comments")
+let exitComments = document.getElementsByClassName("exit-comments")[0]
+// sectionComments.children
+if(sectionComments.style.display !== "flex") {
+  exitComments.onclick = () => {
+    let divs = sectionComments.getElementsByTagName("div")
+    console.log(divs)
+    let count = 0
+    while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
+      sectionComments.removeChild(divs[count])
+      count += 1
+      console.log(divs)
+    if(divs.length === 0) { sectionComments.style.display = "none" }
+  }
+}
 
-document.getElementById("comments-view").onclick = commentsShow
+document.getElementById("comments-view").onclick = commentsShowTutorial
+
+
+async function commentsShowVitrine() {
+
+  let comments = document.getElementsByClassName("div-comments")[0]
+  let section = document.getElementById("section-comments")
+  let main = document.getElementById("main-owner-tutorial")
+  
+  //pegando o id do article
+  let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-vitrine/view")
+  const axiosComment = await axios.get(routeComment)
+
+  //main
+  main.style.position = "absolute"
+  
+  //section
+  section.style.display = "flex"
+
+  //div do commentario
+  for(let textInArrayComments of axiosComment.data.replyes)
+  {
+    let newDiv = document.createElement("div")
+    newDiv.setAttribute("class","div-comments")
+    newDiv.innerHTML = await textInArrayComments.text
+    section.append(newDiv)
+  }
+
+  // console.log(routeComment)
+  // console.log(axiosComment)
+}
+
+document.getElementById("comments-view-vitrine").onclick = commentsShowTutorial

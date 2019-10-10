@@ -19,6 +19,12 @@
                 <p>Submit</p>
             </button>
         </form>
-    <a href="/">back to home</a>
+
+        <a href="/">back to home</a>
     </div>
+
+        {{#if error}}
+        <p>{{error}}</p>
+        {{/if}}
+
 </div>

@@ -538,9 +538,10 @@ form > .btn-tutorial{
 /* USER END */
 
 /* TUTORIAL OWNER */
-.main-owner-tutorial{
+#main-owner-tutorial{
   background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
   height: 100%;
+  width: 100%;
 }
 
 
@@ -559,6 +560,12 @@ form > .btn-tutorial{
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
+}
+
+.exit-comments {
+  color:red;
+  align-self: flex-start;
+  justify-self: start;
 }
 
 .div-comments {
