@@ -1,4 +1,64 @@
-<main class = "main-mid">
+<main class="main-mid">
+  <nav class="nav-tutorial">
+
+    <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
+    <ul>
+      <li> <a href="/">Home</a></li>
+      <li> <a href="/vitrine">Projects</a></li>
+      <li> <a href="/tutorial">Tutorials</a> </li>
+      {{!-- <ffffffli> <a href="/forum">Comunity</a> </li> --}}
+      <li> <a href="/login">Login</a> </li>
+      <li> <a href="/sign">Signup</a> </li>
+
+    </ul>
+
+  </nav>
+
+  <div data-aos="fade-right" class="tutorial-bgc">
+    <h1>Comunity Projects</h1>
+  </div>
+  {{!-- <h1>Tutorials</h1> --}}
+  <div class="btn-tutorial-flex">
+  <form action="/vitrine/create">
+    <button  data-aos="fade-right" type="submit" class="btn-tutorial">
+      <p>+ show your projects</p>
+    </button>
+  </form>
+
+  </div>
+
+  {{!-- <a href="/tutorial/edit">CRIE SEU TU/vitrineSS/owner?id=5d9e95785a76bb16efbb951eTORIAL</a> --}}
+
+  <div class="container">
+
+    <div class="row d-flex justify-content-around">
+
+      {{#each allProject}}
+      <div data-aos="fade-right" class="card bg-dark text-white col-md-3 col-8 my-5 mx-2">
+        <img src="{{this.image}}" class="card-img" alt="..." height="200">
+        <div class="card-img-overlay">
+          <h2 class="card-title">
+            <form action="/vitrine/owner?id={{this._id}}" method="POST">
+              <button type="submit" class="btn-tutorial-id">
+                <p>{{this.title}}</p>
+              </button>
+          </h2>
+
+          </form>
+        </div>
+      </div>
+      {{/each}}
+
+
+    </div>
+    
+  </div>
+</main>
+
+
+
+</main>
+
 
 {{!--
   NAO COMETA ESSE ERRO DENOVO
@@ -8,18 +68,3 @@
     {{/if}}
   {{/each}}
   <h1>{{userLogged}}</h1> --}}
-
-  {{#each allProject}}
-    <div>
-      esse texto {{this.text}} pertence
-      {{#if this.userId.name}}
-      <b>{{this.userId.name}}</b>
-      {{else}}
-      <b>SEM NOME</b>
-      {{/if}}
-    </div>
-  {{/each}}
-
-  <a href="/vitrine/create">MOSTRE SEU PROJETO</a>
-
-</main>

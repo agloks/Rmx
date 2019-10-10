@@ -8,8 +8,9 @@ const moment = require("moment")
 //criando esqueleto do documento project
 const ProjectSchema = new Schema (
   {
+    image: {type: String, default: "images/tutorial/qaglock.jpg"},
     userId: Schema.Types.ObjectId,
-    title: Schema.Types.Mixed,
+    title: {type: Schema.Types.Mixed, default: 'No title'},
     text: Schema.Types.Mixed,
     replyes:[ {type:Schema.Types.ObjectId, ref:"comment"} ],
     likes: {type: Number, default: 0},
