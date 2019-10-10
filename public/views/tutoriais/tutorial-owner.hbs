@@ -4,7 +4,7 @@
   <nav class="nav-tutorial">
 
     <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
-    <ul>
+    <ul class="d-none d-md-inline-flex">
       <li> <a href="/">Home</a></li>
       <li> <a href="/vitrine">Projects</a></li>
       <li> <a href="/tutorial">Tutorials</a> </li>
@@ -15,9 +15,27 @@
     </ul>
 
   </nav>
-  <h1>{{this.userInformation.title}}</h1>
-  <p>{{this.userInformation.text}}</p>
-  <span>{{this.userInformation.userId.name}}</span>
+
+  <div data-aos="fade-right" class="user-main-info">
+    <div class="user-icon">
+      <img src="../../{{this.userInformation.userId.image}}" alt="user_icon">
+    </div>
+    <div class="tutorial-h1-flex">
+      <h1>{{this.userInformation.title}}</h1>
+      <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
+        <button type="submit" id="button-remove-owner">
+          <p>Remove</p>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div data-aos="fade-right" class="tutorial-text-flex">
+  <div class="tutorial-text-bg">
+    <p>{{this.userInformation.text}}</p>
+    <p>{{this.userInformation.userId.name}}</p>
+    <button id="comments-view"><p>Comments</p></butt>
+  </div>
+  </div>
 
   {{!-- quando o cara vem pelo create, não pelo tutorial all --}}
   {{#if Article}}
@@ -31,11 +49,7 @@
   <h1>{{error}}</h1>
   {{/if}}
 
-  <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
-    <button type="submit" id="button-remove-owner"> REMOVE </button>
-  </form>
 
-  <button id="comments-view">COMENTARIOS</butt>
 </main>
 
 <section id="section-comments">
@@ -44,9 +58,9 @@
   <h2 id="h2-comment-tile"></h2>
   <div class="div-comments"></div>
 
-    <form action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
-      <textarea name="text" id="text-comment" cols="100" rows="6"></textarea>
-      <button type="submit" id="div-comments-create"> COMMENTE VOCE TAMBEM </button>
-    </form>
+  <form action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
+    <textarea name="text" id="text-comment" cols="100" rows="6"></textarea>
+    <button type="submit" id="div-comments-create"> COMMENTE VOCE TAMBEM </button>
+  </form>
 
 </section>

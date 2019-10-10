@@ -302,13 +302,14 @@ form > label {
   display: flex;
   flex-direction: column;
   background-size: 200%;
-  /* height: 100%; */
+  height: auto;
+  min-height: 100%;
   /* background-color:  rgba(34, 34, 47, 0.9); */
   background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
   animation: bgAnimation 15s ease infinite;
 }
 
-@keyframes bgAnimation { 
+@keyframes bgAnimation { t
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
@@ -326,10 +327,17 @@ form > label {
   display: flex;
 } */
 
+.btn-tutorial-flex{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* background-color: red; */
+}
+
 .btn-tutorial {
   margin-top: 70px;
   margin-bottom: 40px;
-  margin-left: 54rem;
+  /* margin-left: 54rem; */
   background-image: linear-gradient(35deg, #23a6d5, #23d5ab);
   border: 3px solid #1f9eb8;
 }
@@ -375,11 +383,6 @@ h1 > span {
   margin-bottom: 100px;
 }
 
-form > .btn-tutorial{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .nav-tutorial{
   background-color: rgba(34, 34, 47, 0.6) ;
@@ -458,7 +461,7 @@ form > .btn-tutorial{
 }
 
 .user-icon{
-  background-color:  rgba(34, 34, 47, 0.4);
+  background-image:  linear-gradient(20deg ,#1A7DED, #23d5ab);
   height: 120px;
   width: 120px;
   border-radius: 60px;
@@ -532,7 +535,6 @@ form > .btn-tutorial{
 .user-role > h1:hover {
   font-size: 63px;
   box-shadow: 10px 7px rgba(34, 34, 47, 0.3);
-  height: 20%;
 }
 
 /* USER END */
@@ -540,8 +542,77 @@ form > .btn-tutorial{
 /* TUTORIAL OWNER */
 #main-owner-tutorial{
   background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   width: 100%;
+}
+
+.tutorial-h1-flex{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 65%;
+}
+
+.tutorial-h1-flex > h1 {
+  color: white;
+}
+
+#button-remove-owner{
+  background-color: transparent;
+  border: 2px solid white;
+  margin-right: 30px;
+}
+
+#button-remove-owner > p {
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+#button-remove-owner > p:hover {
+  font-size: 11px;
+  padding: 3px 6px;
+}
+
+.tutorial-text-bg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(34, 34, 47, 0.5);
+  width: 70%;
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  box-shadow: 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-text-bg > p {
+  color: white;
+  width: 80%;
+  margin: 60px;
+}
+
+
+.tutorial-text-flex{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#comments-view{
+  background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
+  border: 2px solid white;
+  border-radius: 50px;
+  margin-bottom: 30px;
+}
+
+#comments-view > p{
+  font-size: 10px;
+}
+
+#comments-view > p:hover{
+  font-size: 11px;
 }
 
 
@@ -552,7 +623,8 @@ form > .btn-tutorial{
 #section-comments {
   display: none;
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   position: absolute;
   background: rgba(0, 0, 0, 0.9);
   z-index: 1;
@@ -588,3 +660,4 @@ form > .btn-tutorial{
 #section-comments > form > * {
   margin: 0.2em auto 1.2em auto;
 }
+
