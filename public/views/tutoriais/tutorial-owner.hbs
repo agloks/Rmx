@@ -1,9 +1,23 @@
-<main id="main-owner-tutorial">
+<main class="main-owner-tutorial">
   {{!-- userInformation é só o article --}}
   {{!-- userInformation.userId é a informação do article do usuario --}}
-  <h1>{{this.userInformation.text}}</h1>
-  <span>{{this.userInformation.userId.name}}</span>
+  <nav class="nav-tutorial">
 
+    <img src="../images/Mixer-logo-02.png" alt="logo" height="100">
+    <ul>
+      <li> <a href="/">Home</a></li>
+      <li> <a href="/vitrine">Projects</a></li>
+      <li> <a href="/tutorial">Tutorials</a> </li>
+      {{!-- <ffffffli> <a href="/forum">Comunity</a> </li> --}}
+      <li> <a href="/login">Login</a> </li>
+      <li> <a href="/sign">Signup</a> </li>
+
+    </ul>
+
+  </nav>
+  <h1>{{this.userInformation.title}}</h1>
+  <p>{{this.userInformation.text}}</p>
+  <span>{{this.userInformation.userId.name}}</span>
   {{#if Article}}
   <h1>{{this.title}}</h1>
   <h1>{{this.text}}</h1>
