@@ -1,14 +1,8 @@
 {
-  "name": "remixantes",
+  "name": "rmx",
   "version": "1.0.0",
-  "description": "Test Productions",
-  "main": "index.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "",
+  "main": "app.js",
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
@@ -23,7 +17,19 @@
     "mongoose": "^5.7.3",
     "nodemon": "^1.19.3"
   },
-  "engine": {
-    "node": "12.10.0"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agloks/Rmx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agloks/Rmx/issues"
+  },
+  "homepage": "https://github.com/agloks/Rmx#readme"
 }

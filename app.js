@@ -6,7 +6,7 @@ const express = require("express")()
 const cookies = require("cookie-parser")
 
 //------------------------------ CRIANDO SERVER -----------------------------------------
-express.listen(3000)
+express.listen(process.env.PORT)
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))
 
