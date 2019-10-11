@@ -18,12 +18,13 @@ async function commentsShowTutorial() {
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
   let divHide = document.getElementsByClassName("view-erase")[0]
+  let commentBox = document.getElementById("comment-box")
 
   // section.style.width = divHide.childNodes[0].childNodes[1].next
   // section.style.height = divHide.clientHeight
 
   //div-hide
-  divHide.style.display = "none"
+  // divHide.style.display = "none"
   
   //pegando o id do article
   let routeComment = document.URL.replace(/tutorial\/owner?/,"comments-tutorial/view")
@@ -41,7 +42,7 @@ async function commentsShowTutorial() {
     let newDiv = document.createElement("div")
     newDiv.setAttribute("class","div-comments")
     newDiv.innerHTML = await textInArrayComments.text
-    section.append(newDiv)
+    commentBox.append(newDiv)
   }
 
   // console.log(routeComment)
@@ -58,13 +59,14 @@ async function commentsShowVitrine() {
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
   let divHide = document.getElementsByClassName("view-erase")[0]
+  let commentBox = documement.getElementById('comment-box')
   
   //pegando o id do article
   let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-project/view")
   const axiosComment = await axios.get(routeComment)
 
   //div-hide
-  divHide.style.display = "none"
+  // divHide.style.display = "none"
 
   //main
   main.style.position = "absolute"
@@ -78,7 +80,7 @@ async function commentsShowVitrine() {
     let newDiv = document.createElement("div")
     newDiv.setAttribute("class","div-comments")
     newDiv.innerHTML = await textInArrayComments.text
-    section.append(newDiv)
+    commentBox.append(newDiv)
   }
 
   // console.log(routeComment)
@@ -108,3 +110,8 @@ if(sectionComments.style.display !== "flex") {
 if(document.getElementById("comments-view-vitrine") !== null) {
   document.getElementById("comments-view-vitrine").onclick = commentsShowVitrine
 }
+
+/* 
+todas-funçoes:
+  // divHide.style.display = "none"
+*/
