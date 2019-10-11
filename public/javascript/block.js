@@ -18,7 +18,6 @@ async function commentsShowTutorial() {
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
   let divHide = document.getElementsByClassName("view-erase")[0]
-  let commentBox = document.getElementById("comment-box")
 
   // section.style.width = divHide.childNodes[0].childNodes[1].next
   // section.style.height = divHide.clientHeight
@@ -42,7 +41,7 @@ async function commentsShowTutorial() {
     let newDiv = document.createElement("div")
     newDiv.setAttribute("class","div-comments")
     newDiv.innerHTML = await textInArrayComments.text
-    commentBox.append(newDiv)
+    section.append(newDiv)
   }
 
   // console.log(routeComment)
@@ -59,7 +58,6 @@ async function commentsShowVitrine() {
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
   let divHide = document.getElementsByClassName("view-erase")[0]
-  let commentBox = documement.getElementById('comment-box')
   
   //pegando o id do article
   let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-project/view")
@@ -80,7 +78,7 @@ async function commentsShowVitrine() {
     let newDiv = document.createElement("div")
     newDiv.setAttribute("class","div-comments")
     newDiv.innerHTML = await textInArrayComments.text
-    commentBox.append(newDiv)
+    section.append(newDiv)
   }
 
   // console.log(routeComment)
@@ -91,18 +89,20 @@ async function commentsShowVitrine() {
 let sectionComments = document.getElementById("section-comments")
 let exitComments = document.getElementsByClassName("exit-comments")[0]
 // sectionComments.children
-if(sectionComments.style.display !== "flex") {
-  exitComments.onclick = () => {
-    let divs = sectionComments.getElementsByTagName("div")
-    let divHide = document.getElementsByClassName("view-erase")[0]
-    // console.log(divs)
-    let count = 0
-    while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
-      sectionComments.removeChild(divs[count])
-      count += 1
+if(sectionComments !== null){
+  if(sectionComments.style.display !== "flex") {
+    exitComments.onclick = () => {
+      let divs = sectionComments.getElementsByTagName("div")
+      let divHide = document.getElementsByClassName("view-erase")[0]
       // console.log(divs)
-    if(divs.length === 0) { sectionComments.style.display = "none" }
-    divHide.style.display = "flex"
+      let count = 0
+      while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
+        sectionComments.removeChild(divs[count])
+        count += 1
+        // console.log(divs)
+      if(divs.length === 0) { sectionComments.style.display = "none" }
+      divHide.style.display = "flex"
+    }
   }
 }
 
@@ -115,3 +115,16 @@ if(document.getElementById("comments-view-vitrine") !== null) {
 todas-funçoes:
   // divHide.style.display = "none"
 */
+
+function editPhoto() {
+  let edit = document.getElementsByClassName("upload")[0]
+
+  edit.style.display = "flex"
+  // edit.style.background = "rgba(0,0,0,0.4)"
+  // edit.style.position = "fixed"
+}
+
+if(document.getElementsByClassName("edit-user-icon").length !== 0) {
+  console.log("s")
+  document.getElementsByClassName("edit-user-icon")[0].onclick = editPhoto
+}

@@ -133,10 +133,10 @@ form > button:hover {
     100%{background-position:0% 50%}
 }
 
-.container-sign > img {
+/* .container-sign > img {
   position: relative;
-  top: 20px;
-}
+  top: 28px;
+} */
 
 .container-sign{
   display: flex;
@@ -146,6 +146,7 @@ form > button:hover {
   border-radius: 20px;
   height: 550px;
   width: 470px;
+  padding: 20px;
 }
 
 .container-sign > form {
@@ -172,7 +173,7 @@ form > button:hover {
 } */
 .container-sign > a {
   position: relative;
-  bottom: -90px;
+  bottom: -70px;
   color: aqua;
 }
 
@@ -462,14 +463,14 @@ h1 > span {
 
 .user-icon{
   background-image:  linear-gradient(20deg ,#1A7DED, #23d5ab);
-  height: 120px;
-  width: 120px;
-  border-radius: 60px;
+  height: 147px;
+  width: 163px;
+  border-radius: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 20px;
-  border: 2px solid white;
+  border: 4.5px solid white;
 }
 
 .user-icon > img {
@@ -645,8 +646,7 @@ h1 > span {
 
 .comment {
   font-size: 10px;
-  color: white;
-  /* background-image: linear-gradient(45deg ,#1A7DED, #23d5ab) */
+  color: black;
 }
 /*---------------------------------- PARTE DO AXIOS FRONT, APAGAR ------------------------------*/
 /*---------------------------------- PARTE DO AXIOS FRONT, APAGAR ------------------------------*/
@@ -669,14 +669,63 @@ h1 > span {
   exit-comments:
     position: fixed;
     top: 0;
+
+  #img-user-profile {
+  height: 95%;
+  width: 95%;
+  border-radius: 76%;
+
+  .user-icon{
+  background-image:  linear-gradient(20deg ,#1A7DED, #23d5ab);
+  height: 147px;
+  width: 163px;
+  border-radius: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  border: 4.5px solid white;
+  }
+
+  .container-sign{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:  rgba(34, 34, 47, 0.8);
+  border-radius: 20px;
+  height: 550px;
+  width: 470px;
+  padding: 20px;
+}
+
+.container-sign > a {
+  position: relative;
+  bottom: -70px;
+  color: aqua;
+}
+
+}
   */
+
+.upload{
+  display: none;
+  position: fixed;
+  background-color: black;
+  height: 100%; 
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  justify-content: center;
+  align-content: center;
+  flex-flow: column wrap;
+}
 
 #section-comments {
   display: none;
   width: 100%;
   height: 100%;
   position: fixed;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 110, 110, 0.6);
   z-index: 1;
   align-content: center;
   align-items: center;
@@ -689,29 +738,15 @@ h1 > span {
 }
 
 .exit-comments {
-  color:white;
+  color:red;
   align-self: flex-start;
   justify-self: start;
   position: fixed;
   top: 0;
-  background-image: linear-gradient(45deg ,#1A7DED, #23d5ab);
-  border-radius: 50px;
-  font-size: 30px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin: 15px;
-  border: 3px solid white;
-  box-shadow: 8px 3px rgba(0, 0, 0, 0.2);
-}
-
-.exit-comments:hover{
-  background-image: linear-gradient(45deg ,#23d5ab, #1A7DED);
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .div-comments {
   color: white;
-  padding: 1%;
 }
 
 
@@ -727,35 +762,12 @@ h1 > span {
   margin: 0.2em auto 1.2em auto;
 }
 
-#text-comment{
-  border-radius: 50px;
-  height: 30px;
-  width: 60%;
-  margin-top: 30px;
-  box-shadow: 8px 5px rgba(0, 0, 0, 0.2);
-}
 
-::placeholder{
-  color: #1A7DED;
-  padding-left: 20px;
-}
-
-.comment-space > button {
-  background-image: linear-gradient(45deg ,#23d5ab, #1A7DED);
-  /* background-image: linear-gradient(20deg ,#1A7DED, #23d5ab); */
-  border: 2px solid white;
-  border-radius: 50px;
-  margin-bottom: 30px;
-  box-shadow: 8px 5px rgba(0, 0, 0, 0.2);
-}
-
-#comment-box {
-  display: flex;
-  justify-content: start;
-  /* background-image: linear-gradient(45deg ,#23d5ab, #1A7DED); */
-  background-color: rgba(34, 34, 47, 0.9) ;
-  border-radius: 10px;
-  flex-direction: column;
-  width: 60%;
-  box-shadow: 12px 15px rgba(0, 0, 0, 0.2); 
+/*
+novo
+*/
+#img-user-profile {
+  height: 100%;
+  width: 100%;
+  border-radius: 76%;
 }
