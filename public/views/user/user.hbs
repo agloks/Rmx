@@ -14,16 +14,24 @@
 
   </nav>
   <div class="user-main-info">
-
     <div class="user-icon">
-      <img src="{{this.image}}" alt="image-user not found">
+      <img src="{{this.image}}" alt="image-user not found" id="img-user-profile">
     </div>
+    {{!-- <section class="upload">
+      <h2>Upload your photo</h2>
+      <form action="/user-photo-upload?id={{this._id}}" method="post" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <input type="file" name="photo">
+        <input type="submit" value="Save" style="color:white"></input>
+      </form>
+    </section> --}}
+
     <div class="user-flex">
-    <div class="user-name">
-      <h5>name:</h5>
-      <p>{{this.name}}</p>
-    </div>
-    <a href="/user-profile/edit">EDIT</a>
+      <div class="user-name">
+        <h5>name:</h5>
+        <p>{{this.name}}</p>
+      </div>
+      <a href="/user-profile/edit">EDIT</a>
     </div>
   </div>
   <div class="user-role">
