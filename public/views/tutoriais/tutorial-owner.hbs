@@ -18,7 +18,7 @@
 
   <div data-aos="fade-right" class="user-main-info">
     <div class="user-icon">
-      <img src="../../{{this.userInformation.userId.image}}" alt="user_icon">
+      <img src="../../{{this.userInformation.userId.image}}" alt="user_icon" id="img-user-profile">
     </div>
     <div class="tutorial-h1-flex">
       <h1>{{this.userInformation.title}}</h1>
@@ -30,13 +30,11 @@
     </div>
   </div>
   <div data-aos="fade-right" class="tutorial-text-flex view-erase">
-    <div class="tutorial-text-bg">
-      <p>{{this.userInformation.text}}</p>
-      <p>{{this.userInformation.userId.name}}</p>
-      <button id="comments-view">
-        <p>Comments</p>
-        </butt>
-    </div>
+  <div class="tutorial-text-bg">
+    <p>{{this.userInformation.text}}</p>
+    <p>{{this.userInformation.userId.name}}</p>
+    <button id="comments-view"><p>Comments</p></butt>
+  </div>
   </div>
 
   {{!-- quando o cara vem pelo create, não pelo tutorial all --}}
@@ -54,19 +52,15 @@
   {{!-- <h1>{{this.userInformation}}</h1> --}}
   <a href="/tutorial/editView?id={{this.userInformation._id}}">EDIT</a>
 
-  <section id="section-comments">
-    <button class="exit-comments">x</button>
+<section id="section-comments">
+  <button class="exit-comments">EXIT</button>
 
-    <h2 id="h2-comment-tile"></h2>
-    <div id="comment-box" style="overflow-y:scroll; height:30%;">
-      <div class="div-comments"></div>
-    </div>
+  <h2 id="h2-comment-tile"></h2>
+  <div class="div-comments"></div>
 
-    <form class='comment-space' action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
-      <textarea name="text" id="text-comment" cols="100" rows="6" placeholder="write a comment..."></textarea>
-      <button type="submit">
-        <p class="comment">COMMENT</p>
-      </button>
-    </form>
+  <form class='comment-space' action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
+    <textarea name="text" id="text-comment" cols="100" rows="6"></textarea>
+    <button type="submit"> <p class="comment">COMMENTE</p></button>
+  </form>
 
-  </section>
+</section>

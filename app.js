@@ -6,6 +6,8 @@ const express = require("express")()
 const cookies = require("cookie-parser")
 
 //------------------------------ CRIANDO SERVER -----------------------------------------
+const multer = require("multer")
+const upload = multer({ dest: './public/uploads-perfil' })
 express.listen(process.env.PORT)
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))

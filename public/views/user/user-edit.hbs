@@ -1,10 +1,20 @@
 
 {{!-- USANDO O HBS DO SIGN COMO BASE --}}
 
+      <section class="upload">
+      <h2>Upload your photo</h2>
+      <form action="/user-photo-upload?id={{this._id}}" method="post" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <input type="file" name="photo">
+        <input type="submit" value="Save" style="color:white"></input>
+      </form>
+    </section>
+    
 <div class="sign">
-
   <div data-aos="fade-right" class="container-sign">
-  <img src="../../images/Mixer-logo-solo.png" alt="" height="120">
+    <div class="user-icon edit-user-icon">
+      <img src="../{{this.image}}" alt="image-user not found" id="img-user-profile">
+    </div>
 
   <h2>Edit</h2>
 
