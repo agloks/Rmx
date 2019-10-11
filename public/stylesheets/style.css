@@ -759,3 +759,14 @@ h1 > span {
   width: 60%;
   box-shadow: 12px 15px rgba(0, 0, 0, 0.2); 
 }
+
+#comments-view-vitrine{
+  background-image: linear-gradient(20deg ,#1A7DED, #23d5ab);
+  border: 2px solid white;
+  border-radius: 50px;
+  margin-bottom: 30px;
+}
+
+#comments-view-vitrine > p{
+  font-size: 10px;
+}
