@@ -8,7 +8,7 @@ const cookies = require("cookie-parser")
 //------------------------------ CRIANDO SERVER -----------------------------------------
 express.listen(3000)
 
-mongoose.connect('mongodb://localhost:27017/rmx', { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  }).then((e) => console.log("Connect Sucess BD"))
 
 //---------------------------- EXPRESS USE/CONFIGURAÇÃO -------------------------------------
 //Aqui dizemos o que o express vai gerenciar:
