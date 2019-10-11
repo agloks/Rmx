@@ -29,12 +29,14 @@
       </form>
     </div>
   </div>
-  <div data-aos="fade-right" class="tutorial-text-flex">
-  <div class="tutorial-text-bg">
-    <p>{{this.userInformation.text}}</p>
-    <p>{{this.userInformation.userId.name}}</p>
-    <button id="comments-view"><p>Comments</p></butt>
-  </div>
+  <div data-aos="fade-right" class="tutorial-text-flex view-erase">
+    <div class="tutorial-text-bg">
+      <p>{{this.userInformation.text}}</p>
+      <p>{{this.userInformation.userId.name}}</p>
+      <button id="comments-view">
+        <p>Comments</p>
+        </butt>
+    </div>
   </div>
 
   {{!-- quando o cara vem pelo create, não pelo tutorial all --}}
@@ -49,27 +51,22 @@
   <h1>{{error}}</h1>
   {{/if}}
 
-  <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
-    <button type="submit" id="button-remove-owner"> REMOVE </button>
-  </form>
-
   {{!-- <h1>{{this.userInformation}}</h1> --}}
   <a href="/tutorial/editView?id={{this.userInformation._id}}">EDIT</a>
 
-  <button id="comments-view">COMENTARIOS</butt>
-</main>
+  <section id="section-comments">
+    <button class="exit-comments">x</button>
 
-<section id="section-comments">
-  <button class="exit-comments">EXIT</button>
+    <h2 id="h2-comment-tile"></h2>
+    <div id="comment-box" style="overflow-y:scroll; height:30%;">
+      <div class="div-comments"></div>
+    </div>
 
-  <h2 id="h2-comment-tile"></h2>
-  <div class="div-comments"></div>
-<div class="comment-bar">
+    <form class='comment-space' action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
+      <textarea name="text" id="text-comment" cols="100" rows="6" placeholder="write a comment..."></textarea>
+      <button type="submit">
+        <p class="comment">COMMENT</p>
+      </button>
+    </form>
 
-  <form class='comment-space' action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
-    <textarea name="text" id="text-comment" cols="100" rows="6"></textarea>
-    <button type="submit"> <p class="comment">COMMENTE</p></button>
-  </form>
-</div>
-
-</section>
+  </section>
