@@ -1,13 +1,10 @@
 {
   "name": "remixantes",
   "version": "1.0.0",
-  "engines": {
-	"node": "12.10.0",
-  },
   "description": "Test Productions",
   "main": "index.js",
   "scripts": {
-	"start":"node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -18,10 +15,15 @@
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "cookie-parser": "^1.4.4",
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "formidable": "^1.2.1",
     "hbs": "^4.0.5",
     "moment": "^2.24.0",
     "mongoose": "^5.7.3",
+    "nodemon": "^1.19.3"
+  },
+  "engine": {
+    "node": "12.10.0"
   }
 }
