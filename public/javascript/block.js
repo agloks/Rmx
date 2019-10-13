@@ -59,7 +59,7 @@ async function commentsShowVitrine() {
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
   let divHide = document.getElementsByClassName("view-erase")[0]
-  // let commentBox = documement.getElementById('comment-box')
+  let commentBox = document.getElementById('comment-box')
   
   //pegando o id do article
   let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-project/view")
@@ -96,10 +96,11 @@ if(sectionComments !== null) {
     exitComments.onclick = () => {
       let divs = sectionComments.getElementsByTagName("div")
       let divHide = document.getElementsByClassName("view-erase")[0]
+      let article = document.getElementById("comment-box")
       // console.log(divs)
       let count = 0
       while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
-        sectionComments.removeChild(divs[count])
+        article.removeChild(divs[count])
         count += 1
         // console.log(divs)
       if(divs.length === 0) { sectionComments.style.display = "none" }
@@ -107,8 +108,6 @@ if(sectionComments !== null) {
     }
   } 
 }
-
-
 if(document.getElementById("comments-view-vitrine") !== null) {
   document.getElementById("comments-view-vitrine").onclick = commentsShowVitrine
 }
@@ -120,14 +119,10 @@ function editProfileImage() {
   form.style.display = "flex"
 }
 
-if(document.getElementsByClassName("image-switch")[0] !== null) {
+if(document.getElementsByClassName("image-switch").length !== 0) {
   document.getElementsByClassName("image-switch")[0].onclick = editProfileImage
   document.getElementsByClassName("exit-upload-dom")[0].onclick = function(){
     let form = document.getElementsByClassName("upload-dom")[0]
     form.style.display = "none"
   }
 }
-/* 
-todas-funçoes:
-  // divHide.style.display = "none"
-*/

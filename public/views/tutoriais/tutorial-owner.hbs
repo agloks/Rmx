@@ -63,9 +63,9 @@
     <button class="exit-comments">x</button>
 
     <h2 id="h2-comment-tile"></h2>
-    <div id="comment-box" style="overflow-y:scroll; height:30%;">
+    <article id="comment-box" style="overflow-y:scroll; height:30%;">
       <div class="div-comments"></div>
-    </div>
+    </article>
 
     <form class='comment-space' action="/comments-tutorial/create?id={{this.userInformation._id}}" method="post">
       <textarea name="text" id="text-comment" cols="100" rows="6" placeholder="write a comment..."></textarea>
@@ -75,3 +75,6 @@
     </form>
 
   </section>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../javascript/block.js"></script>

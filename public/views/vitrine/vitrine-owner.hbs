@@ -67,7 +67,7 @@
   {{/if}}
 
 
-  <section id="section-comments">
+  {{!-- <section id="section-comments">
     <button class="exit-comments">EXIT</button>
 
     <h2 id="h2-comment-tile"></h2>
@@ -78,4 +78,24 @@
       <button type="submit" id="div-comments-create"> COMMENTE VOCE TAMBEM </button>
     </form>
 
+  </section> --}}
+
+  <section id="section-comments">
+    <button class="exit-comments">x</button>
+
+    <h2 id="h2-comment-tile"></h2>
+    <article id="comment-box" style="overflow-y:scroll; height:30%;">
+      <div class="div-comments"></div>
+    </article>
+
+    <form class='comment-space' action="/comments-project/create?id={{Project._id}}" method="post">
+      <textarea name="text" id="text-comment" cols="100" rows="6" placeholder="write a comment..."></textarea>
+      <button type="submit">
+        <p class="comment">COMMENT</p>
+      </button>
+    </form>
+
   </section>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../javascript/block.js"></script>
