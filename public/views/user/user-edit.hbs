@@ -7,10 +7,12 @@
 </form>
 <div class="sign">
 
-  <div data-aos="fade-right" class="container-sign">
-  <img src="../../images/Mixer-logo-solo.png" alt="" height="120" class="image-switch">
 
-  <h2>Edit</h2>
+  <div data-aos="fade-right" class="container-sign">
+    <div class="user-icon">
+      <img src="../{{this.image}}" alt="image-user not found" class="image-switch">
+    </div>
+  {{!-- <img src="../../images/Mixer-logo-solo.png" alt="" height="120" class="image-switch"> --}}
 
   <form action="/user-profile/edit" method="post">
     <label for="login"> *Login </label>

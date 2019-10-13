@@ -34,10 +34,11 @@ router.get("/user-profile", async (req, res) => {
   } else { res.render("user/user.hbs", {error: "nao logado, logue para ter acesso aqui"}) }//caso de não logado
 })
 
-router.get("/user-profile/edit", (req,res) => {
+router.get("/user-profile/edit", async (req,res) => {
   console.log(color.red("ESTOU NA ROTA GET USER-PROFILE EDIT"))
-
-  res.render("user/user-edit.hbs")
+  let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
+  let sendUserObject = await user.findById(userCookies)
+  res.render("user/user-edit.hbs", sendUserObject)
 })
 
 //ROUTE POST -- PARA EDITAR

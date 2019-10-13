@@ -145,7 +145,8 @@ form > button:hover {
   background-color:  rgba(34, 34, 47, 0.8);
   border-radius: 20px;
   height: 550px;
-  width: 470px;
+  width: 400px;
+  padding: 20px;
 }
 
 .container-sign > form {
@@ -910,4 +911,3 @@ h1 > span {
   font-weight: bold;
   font-size: 20px;
 }
-
