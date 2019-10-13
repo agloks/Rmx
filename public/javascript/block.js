@@ -59,7 +59,7 @@ async function commentsShowVitrine() {
   let section = document.getElementById("section-comments")
   let main = document.getElementById("main-owner-tutorial")
   let divHide = document.getElementsByClassName("view-erase")[0]
-  let commentBox = documement.getElementById('comment-box')
+  // let commentBox = documement.getElementById('comment-box')
   
   //pegando o id do article
   let routeComment = document.URL.replace(/vitrine\/owner?/,"comments-project/view")

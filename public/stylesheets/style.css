@@ -558,21 +558,119 @@ h1 > span {
   color: white;
 }
 
-#button-remove-owner{
+.button-remove-owner{
   background-color: transparent;
   border: 2px solid white;
   margin-right: 30px;
 }
 
-#button-remove-owner > p {
+.button-remove-owner > p {
   font-size: 10px;
   padding: 2px 5px;
 }
 
-#button-remove-owner > p:hover {
+.button-remove-owner > p:hover {
   font-size: 11px;
   padding: 3px 6px;
 }
+
+/*
+
+.remove-and-edit-tutorial > * {
+  margin-top: 15px;
+}
+
+.button-remove-owner{
+  background-color: transparent;
+  border: 2px solid white;
+  margin-right: 30px;
+}
+
+.button-remove-owner > p {
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+.button-remove-owner:hover {
+  background-color: black;
+}
+
+.button-edit-owner {
+  background-color: transparent;
+  border: 2px solid white;
+  margin-right: 30px;
+  border-radius: 100px;
+  height: 62px;
+  width: 62px;
+}
+
+.button-edit-owner > a {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 10px;
+  color: white;
+  padding: 2px 5px;
+  text-decoration-line: none;
+}
+
+.button-edit-owner:hover{
+  font-size: 11px;
+  padding: 3px 6px;
+  background-color: black;
+}
+
+*/
+
+
+.remove-and-edit-tutorial > * {
+  margin-top: 15px;
+}
+
+
+.exclusive-button-remove{
+  background-color: transparent;
+  border: 2px solid white;
+  margin-right: 30px;
+  height: 62px;
+  width: 62px;
+}
+
+.exclusive-button-remove > p {
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+.exclusive-button-remove:hover {
+  background-color: black;
+}
+
+
+.button-edit-owner {
+  background-color: transparent;
+  border: 2px solid white;
+  margin-right: 30px;
+  border-radius: 100px;
+  height: 62px;
+  width: 62px;
+}
+
+.button-edit-owner > a {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 10px;
+  color: white;
+  padding: 2px 5px;
+  text-decoration-line: none;
+}
+
+.button-edit-owner:hover{
+  font-size: 11px;
+  padding: 3px 6px;
+  background-color: black;
+}
+
 
 .tutorial-text-bg{
   display: flex;

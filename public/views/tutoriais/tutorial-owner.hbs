@@ -22,11 +22,16 @@
     </div>
     <div class="tutorial-h1-flex">
       <h1>{{this.userInformation.title}}</h1>
-      <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
-        <button type="submit" id="button-remove-owner">
-          <p>Remove</p>
+      <div class="remove-and-edit-tutorial">
+        <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
+          <button type="submit" class="button-remove-owner exclusive-button-remove">
+            <p>Remove</p>
+          </button>
+        </form>
+        <button type="submit" class="button-edit-owner">
+          <a href="/tutorial/editView?id={{this.userInformation._id}}">Edit</a>
         </button>
-      </form>
+      </div>
     </div>
   </div>
   <div data-aos="fade-right" class="tutorial-text-flex view-erase">
@@ -52,7 +57,7 @@
   {{/if}}
 
   {{!-- <h1>{{this.userInformation}}</h1> --}}
-  <a href="/tutorial/editView?id={{this.userInformation._id}}">EDIT</a>
+
 
   <section id="section-comments">
     <button class="exit-comments">x</button>

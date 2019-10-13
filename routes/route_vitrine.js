@@ -32,19 +32,24 @@ router.get("/vitrine/create", (req, res) => { //3
   res.render("vitrine/vitrine-create.hbs")
 })
 
+router.get("/vitrine/editView", (req,res) => {
+  console.log( color.red("to no get edit view" + req.query.id ))
+  res.render("vitrine/vitrine-edit.hbs", {id: req.query.id})
+})
+
 //POST
 //pegamos o id do render sucess na rote_login
 router.post("/vitrine/edit", async(req, res) => { // 2
   console.log( color.red(">>> To no vitrine post edit \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
 
-  const findProject = await project.findById(idVitrineRemove)
+  const findProject = await project.findById(req.query.id).then((s)=> {return (s)})
   const enableEdit = (findProject.userId == req.body.userId)
 
   if((req.body.text !== "") && (req.body.title !== "") && (enableEdit) && (req.body.userId !== null))//criando
   {
-    if(req.body.userId !== null) { req.body.Project = await createProject(req.body) }//criando o tutorial se ele ta em texto e logado
-    res.render("vitrine/vitrine-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+    req.body.Project = await project.findByIdAndUpdate(req.query.id, req.body)//criando o tutorial se ele ta em texto e logado
+    res.redirect("/vitrine") //mandamos para o hbs o objeto para manipular
   } else { //erro
     res.render("vitrine/vitrine-edit.hbs", { error: "Falha ao criar o projeto, preencha os campo corretamente" }) 
   }
