@@ -559,6 +559,9 @@ h1 > span {
 
 .tutorial-h1-flex > h1 {
   color: white;
+  align-self: center;
+  order: -1;
+  font-size: 30px;
 }
 
 .button-remove-owner{
@@ -917,4 +920,12 @@ h1 > span {
   border: 2px solid white;
   border-radius: 50px;
   margin-bottom: 30px;
+}
+
+.owner {
+  font-weight: bold;
+  font-size: 1.3rem;
+  font-family: cursive;
+  margin: 0px !important;
+  margin-bottom: 1rem !important;
 }
