@@ -1,10 +1,14 @@
 
 {{!-- USANDO O HBS DO SIGN COMO BASE --}}
-
+<form action="/user-download" method="post" class="upload-dom" enctype="multipart/form-data">
+  <input type="file" name="photo" id="photo">
+  <button type="submit">SAVE</button>
+  <div class="exit-upload-dom"> <span>X</span> </div>
+</form>
 <div class="sign">
 
   <div data-aos="fade-right" class="container-sign">
-  <img src="../../images/Mixer-logo-solo.png" alt="" height="120">
+  <img src="../../images/Mixer-logo-solo.png" alt="" height="120" class="image-switch">
 
   <h2>Edit</h2>
 

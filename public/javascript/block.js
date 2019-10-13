@@ -91,19 +91,21 @@ async function commentsShowVitrine() {
 let sectionComments = document.getElementById("section-comments")
 let exitComments = document.getElementsByClassName("exit-comments")[0]
 // sectionComments.children
-if(sectionComments.style.display !== "flex") {
-  exitComments.onclick = () => {
-    let divs = sectionComments.getElementsByTagName("div")
-    let divHide = document.getElementsByClassName("view-erase")[0]
-    // console.log(divs)
-    let count = 0
-    while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
-      sectionComments.removeChild(divs[count])
-      count += 1
+if(sectionComments !== null) {
+  if(sectionComments.style.display !== "flex") {
+    exitComments.onclick = () => {
+      let divs = sectionComments.getElementsByTagName("div")
+      let divHide = document.getElementsByClassName("view-erase")[0]
       // console.log(divs)
-    if(divs.length === 0) { sectionComments.style.display = "none" }
-    divHide.style.display = "flex"
-  }
+      let count = 0
+      while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
+        sectionComments.removeChild(divs[count])
+        count += 1
+        // console.log(divs)
+      if(divs.length === 0) { sectionComments.style.display = "none" }
+      divHide.style.display = "flex"
+    }
+  } 
 }
 
 
@@ -111,6 +113,20 @@ if(document.getElementById("comments-view-vitrine") !== null) {
   document.getElementById("comments-view-vitrine").onclick = commentsShowVitrine
 }
 
+
+function editProfileImage() {
+  let img = document.getElementsByClassName("image-switch")[0]
+  let form = document.getElementsByClassName("upload-dom")[0]
+  form.style.display = "flex"
+}
+
+if(document.getElementsByClassName("image-switch")[0] !== null) {
+  document.getElementsByClassName("image-switch")[0].onclick = editProfileImage
+  document.getElementsByClassName("exit-upload-dom")[0].onclick = function(){
+    let form = document.getElementsByClassName("upload-dom")[0]
+    form.style.display = "none"
+  }
+}
 /* 
 todas-funçoes:
   // divHide.style.display = "none"

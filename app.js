@@ -4,6 +4,8 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const express = require("express")()
 const cookies = require("cookie-parser")
+const multer = require("multer")
+
 
 //------------------------------ CRIANDO SERVER -----------------------------------------
 express.listen(process.env.PORT)
