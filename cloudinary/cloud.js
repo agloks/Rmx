@@ -8,7 +8,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET
 });
 
-var storage = cloudinaryStorage({
+const storage = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: "user-rmx", // The name of the folder in cloudinary
   allowedFormats: ["jpg", "png", "jpeg", "svg"],
