@@ -5,14 +5,16 @@ const util = require("util")
 const comment = require("../models/schemaComment.js")
 const user = require("../models/schemaUser.js")
 const multer = require("multer")
+const cloudinary = require("cloudinary")
+const uploadCloud = require("../cloudinary/cloud")
 // setando configuraçãoes no multer, para onde salvar e o nome do arquivo
-const multerStorage = multer.diskStorage({
-  destination: "./public/images/upload-user/",
-  filename: function(req, file, cb) {
-    cb(null, Date.now() + '-' +file.originalname)
-  }
-})
-const upload = multer({storage: multerStorage})
+// const multerStorage = multer.diskStorage({
+//   destination: "./public/images/upload-user/",
+//   filename: function(req, file, cb) {
+//     cb(null, Date.now() + '-' +file.originalname)
+//   }
+// })
+// const upload = multer({storage: multerStorage})
 
 async function updateUser(id, reqs) {
   let bSalt =  b.genSaltSync(7)
@@ -25,7 +27,6 @@ async function updateUser(id, reqs) {
 
 // ROUTE GET -- PARA VER O PERFIL DO USUÁRIO
 router.get("/user-profile", async (req, res) => {
-  console.log(color.red("ESTOU NA ROTA GET USER-PROFILE"))
   
   let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
   if(userCookies !== null) { //se usuário tiver logado
@@ -35,7 +36,6 @@ router.get("/user-profile", async (req, res) => {
 })
 
 router.get("/user-profile/edit", async (req,res) => {
-  console.log(color.red("ESTOU NA ROTA GET USER-PROFILE EDIT"))
   let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
   let sendUserObject = await user.findById(userCookies)
   res.render("user/user-edit.hbs", sendUserObject)
@@ -43,21 +43,18 @@ router.get("/user-profile/edit", async (req,res) => {
 
 //ROUTE POST -- PARA EDITAR
 router.post("/user-profile/edit", async(req, res) => {
-  console.log(color.red("ESTOU NA ROTA POST USER-PROFILE EDIT"))
 
   let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
   if(userCookies !== null) { //se usuário tiver logado
     const userUpdateBd = await updateUser(userCookies, req.body)
-    console.log(userUpdateBd)
     res.redirect("/user-profile") //passando o documento do bd para o hbs
   } else { res.render("user/user-edit.hbs", {error: "erro nas mudanças"}) }//caso de não logado
 })
 
 //UPLOAD
-router.post("/user-download", upload.single('photo'), async(req, res) => {
+router.post("/user-download", uploadCloud.single('photo'), async(req, res) => {
   let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
-  let foundUpdate = await user.findByIdAndUpdate(userCookies, {image: `images/upload-user/${req.file.filename}`} )
+  let foundUpdate = await user.findByIdAndUpdate(userCookies, {image: `https://res.cloudinary.com/rmx/image/upload/v1573593577/user-rmx/${req.file.originalname}.${req.file.format}`} )
   .then((s) => { return s })
-  console.log( color.red( "TO NA ROUTA USER DONWLOAD POST => \n" + foundUpdate) )
   res.redirect("/user-profile")
 })
