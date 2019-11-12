@@ -1,3 +1,23 @@
+function lgs() {
+  let lgsLogout = document.getElementsByClassName("lgs")[1]
+  let lgs = document.getElementsByClassName("lgs")[0]
+  let aOfLgs = lgs.children[0]
+  let aOfLgsLogout = lgsLogout.children[0]
+
+  aOfLgs.innerHTML = "Profile"
+  aOfLgs.setAttribute("href","/user-profile")
+
+  aOfLgsLogout.innerHTML = "Logout"
+  aOfLgsLogout.removeAttribute("href")
+  aOfLgsLogout.setAttribute("href","/")
+  aOfLgsLogout.setAttribute("onclick","eCS()")
+}
+if(document.cookie.match(/11111/)) { lgs() }
+
+function eCS(){
+  document.cookie = "Connection"+"=;expires=Thu, 01 Jan 1970 00:00:001 GMT"
+}
+
 function enabledTextArea() {
   let textarea = document.getElementsByTagName("textarea")[0]
 

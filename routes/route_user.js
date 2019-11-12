@@ -31,7 +31,7 @@ router.get("/user-profile", async (req, res) => {
   if(userCookies !== null) { //se usuário tiver logado
     const userFoundBd = await user.findById(userCookies)
     res.render("user/user.hbs", userFoundBd) //passando o documento do bd para o hbs
-  } else { res.render("user/user.hbs", {error: "nao logado, logue para ter acesso aqui"}) }//caso de não logado
+  } else { res.send("<h1>acesso não autorizado<h1>") }//caso de não logado
 })
 
 router.get("/user-profile/edit", async (req,res) => {
