@@ -8,7 +8,6 @@
       <li> <a href="/">Home</a></li>
       <li> <a href="/vitrine">Projects</a></li>
       <li> <a href="/tutorial">Tutorials</a> </li>
-      {{!-- <ffffffli> <a href="/forum">Comunity</a> </li> --}}
       <li> <a href="/login">Login</a> </li>
       <li> <a href="/sign">Signup</a> </li>
 
@@ -22,6 +21,7 @@
     </div>
     <div class="tutorial-h1-flex">
       <h1>{{this.userInformation.title}}</h1>
+      {{#if this.showButtonEdit}}
       <div class="remove-and-edit-tutorial">
         <form action="/tutorial/remove?id={{this.userInformation._id}}" method="POST">
           <button type="submit" class="button-remove-owner exclusive-button-remove">
@@ -32,6 +32,7 @@
           <a href="/tutorial/editView?id={{this.userInformation._id}}">Edit</a>
         </button>
       </div>
+      {{/if}}
     </div>
   </div>
   <div data-aos="fade-right" class="tutorial-text-flex view-erase">

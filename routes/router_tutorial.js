@@ -3,6 +3,7 @@ const router = require("./route_raiz.js")
 const util = require("util")
 const article = require("../models/schemaArticle.js")
 const user = require("../models/schemaUser.js")
+const userIsLogged = require("../models/userLogged")
 
 //FUNCÕES
 //Função para cria o tutorial
@@ -70,9 +71,17 @@ router.post("/tutorial/create", async(req, res) => {
 router.post("/tutorial/owner", async (req, res) => { // 2
   console.log( color.red(">>> To no tutorial owner \n" + req.query.id ) );
   req.body.id = req.query.id
-  req.body.userInformation = await article.findById(req.query.id).populate("userId")
-  console.log( color.red(">>> To no tutorial owner \n" + util.inspect(req.body) ) );
-  res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  const userId = `"${userIsLogged(req)}"`
+  const articleShow = await article.findById(req.query.id).populate("userId")
+  if(userId === JSON.stringify(articleShow.userId._id)) {
+    req.body.showButtonEdit = true
+    req.body.userInformation = articleShow
+    res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  } else {
+    req.body.showButtonEdit = null
+    req.body.userInformation = articleShow
+    res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  }
 })
 
 //delete
