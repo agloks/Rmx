@@ -6,15 +6,12 @@
       <li> <a href="/">Home</a></li>
       <li> <a href="/vitrine">Projects</a></li>
       <li> <a href="/tutorial">Tutorials</a> </li>
-      {{!-- <ffffffli> <a href="/forum">Comunity</a> </li> --}}
       <li class = "lgs"> <a href="/login">Login</a> </li>
       <li class = "lgs"> <a href="/sign">Signup</a> </li>
 
     </ul>
 
   </nav>
-  {{!-- <h1>Create your tutorial</h1> --}}
-  {{!-- temos o documento do user logado aqui --}}
   <div data-aos="fade-right" class="tutorial-create-flex">
   <form action="/tutorial/edit?id={{this.id}}" method="POST" class="form-create">
     <button type="submit"> <p>🖊️Update</p></button>

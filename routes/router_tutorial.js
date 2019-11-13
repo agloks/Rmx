@@ -4,6 +4,10 @@ const util = require("util")
 const article = require("../models/schemaArticle.js")
 const user = require("../models/schemaUser.js")
 const userIsLogged = require("../models/userLogged")
+const multer = require("multer")
+const cloudinary = require("cloudinary")
+const uploadCloud = require("../cloudinary/cloud")
+const parseRefererHeader = require("../models/parserRefererHeader")
 
 //FUNCÕES
 //Função para cria o tutorial
@@ -15,11 +19,9 @@ async function createArticle(reqs) {
 //GET ROUTE
 //Tutorial do visitante, sem permissão de editar
 router.get("/tutorial", async (req, res) => { // 1
-  console.log( color.red(">>> To no tutorial get \n") )
   //vemos se o usuario ta logado
   let idUserOwner = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
   if(idUserOwner !== null) {
-    console.log(idUserOwner)
     //PRECISAMOS MEXER AQUI, PARA QUE QUANDO ELE TIVER LOGADO O QUE ELE PODERA FAZER?
     var allTutorial = await article.find().populate("userId") // array de todos os documentos achado
   }
@@ -33,14 +35,12 @@ router.get("/tutorial/create", (req, res) => { //3
 })
 
 router.get("/tutorial/editView", (req, res) => {
-  console.log("to no get editView" + util.inspect(req.query))
   res.render("tutoriais/tutorial-edit", {id:req.query.id})
 })
 
 //POST
 //pegamos o id do render sucess na rote_login
 router.post("/tutorial/edit", async(req, res) => { // 2
-  console.log( color.red(">>> To no tutorial post edit \n" + util.inspect(req.query) ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
 
   const findArticle = await article.findById(req.query.id)
@@ -56,7 +56,6 @@ router.post("/tutorial/edit", async(req, res) => { // 2
 })
 
 router.post("/tutorial/create", async(req, res) => {
-  console.log( color.red(">>> To no tutorial post create \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
   if((req.body.text !== "") && (req.body.title !== "") && (req.body.userId !== null))//criando
   {
@@ -69,7 +68,6 @@ router.post("/tutorial/create", async(req, res) => {
 
 //AQUI SÓ VEMOS O RESULTADO ESPECIFICO, VINDO DE ALL TUTORIALs
 router.post("/tutorial/owner", async (req, res) => { // 2
-  console.log( color.red(">>> To no tutorial owner \n" + req.query.id ) );
   req.body.id = req.query.id
   const userId = `"${userIsLogged(req)}"`
   const articleShow = await article.findById(req.query.id).populate("userId")
@@ -84,10 +82,19 @@ router.post("/tutorial/owner", async (req, res) => { // 2
   }
 })
 
+//UPLOAD
+router.post("/tutorial-download", uploadCloud.single("photo-tutorial"), async(req, res) => {
+  let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
+  const idArticle = parseRefererHeader(req.headers)
+  console.log(idArticle)
+  let foundUpdate = await article.findByIdAndUpdate(idArticle, {image: `https://res.cloudinary.com/rmx/image/upload/v1573593577/user-rmx/${req.file.originalname}.${req.file.format}`} )
+  .then((s) => { return s })
+  res.redirect(307, `/tutorial/owner?id=${idArticle}`)
+})
+
 //delete
 router.post("/tutorial/remove" , async (req, res) => {
   let idTutorialRemove = req.query.id
-  console.log( "to na routa post remove Tutorial " + idTutorialRemove)
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
 
   const findArticle = await article.findById(idTutorialRemove)

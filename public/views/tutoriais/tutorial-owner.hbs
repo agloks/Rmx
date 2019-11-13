@@ -1,3 +1,13 @@
+{{#if this.showButtonEdit}}
+  {{!-- MODAL --}}
+  <form action="/tutorial-download" method="post" class="upload-dom" enctype="multipart/form-data">
+    <input type="file" name="photo-tutorial" id="photo">
+    <button type="submit">SAVE</button>
+    <div class="exit-upload-dom"> <span>X</span> </div>
+  </form>
+  {{!-- MODAL --}}
+{{/if}}
+
 <main id="main-owner-tutorial">
   {{!-- userInformation é só o article --}}
   {{!-- userInformation.userId é a informação do article do usuario --}}
@@ -8,8 +18,8 @@
       <li> <a href="/">Home</a></li>
       <li> <a href="/vitrine">Projects</a></li>
       <li> <a href="/tutorial">Tutorials</a> </li>
-      <li> <a href="/login">Login</a> </li>
-      <li> <a href="/sign">Signup</a> </li>
+      <li class = "lgs"> <a href="/login" >Login</a> </li>
+      <li class = "lgs"> <a href="/sign" >Signup</a> </li>
 
     </ul>
 
@@ -17,7 +27,7 @@
 
   <div data-aos="fade-right" class="user-main-info">
     <div class="user-icon">
-      <img src="../../{{this.userInformation.userId.image}}" alt="user_icon">
+      <img src="../{{this.userInformation.userId.image}}" alt="user_icon" class="image-switch">
     </div>
     <div class="tutorial-h1-flex">
       <h1>{{this.userInformation.title}}</h1>
