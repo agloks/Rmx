@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let article = document.getElementById("comment-box")
     
             let count = 0
-            while(divs.length !== 0) //Porque sem chaves ele funciiona, e com chaves travas?
+            while(divs.length !== 0) 
               article.removeChild(divs[count])
               count += 1
             if(divs.length === 0) { sectionComments.style.display = "none" }

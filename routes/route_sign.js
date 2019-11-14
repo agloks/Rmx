@@ -23,7 +23,6 @@ router.get("/sign", (req, res) => {
 router.post("/sign", async (req, res) => {
   const reqSave = req.body
 
-  //fazemos verficação pelo tamanho dos campo escrito
   try {
     if( (reqSave.name.length) && (reqSave.password.length) && (reqSave.login.length) ) {
       reqSave.role = "Remixante" // passamos a sua role default

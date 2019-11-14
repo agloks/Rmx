@@ -1,12 +1,9 @@
 const express = require("express")
 const color = require("chalk")
 const bcrypt = require("bcrypt")
-
-//libs locais
 const router = require("./route_raiz.js")
 const controlUserReq = require("../models/all.js")
 const user = require("../models/schemaUser.js")
-//----------------------------------- CRIANDO ROUTAS GET ------------------------------------
 
 //GET ROUTE
 router.get("/login", (req, res) => {
@@ -15,9 +12,8 @@ router.get("/login", (req, res) => {
 
 //POST ROUTE
 router.post("/login/post", async (req, res) => {
-    //pega a resposta do post
 
-    const sendControl = await user.find({ login: req.body.login })// pegando o objeto usuario no bd
+    const sendControl = await user.find({ login: req.body.login })
     const userControled = (sendControl.length === 0) ? new controlUserReq("Guess") : new controlUserReq(sendControl[0].role)//passando a role para a classe que controlara o dom
     userControled.setPermission()//setando as permissão que o usuario pode
 
@@ -29,7 +25,6 @@ router.post("/login/post", async (req, res) => {
                 maxAge: 1000 * 60 * (60 * 24),//60 minutos * 24h
                 httpOnly: false,//permiti que o cookie seja acessivel no front
             }).redirect("/user-profile")
-            // .render("user/user.hbs", sendControl[0])//precisamos manda o id para o hbs
     } else {
         res.redirect("/login")
     }
