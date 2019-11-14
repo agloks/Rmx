@@ -1,7 +1,7 @@
 {{#if this.showButtonEdit}}
   {{!-- MODAL --}}
-  <form action="/tutorial-download" method="post" class="upload-dom" enctype="multipart/form-data">
-    <input type="file" name="photo-tutorial" id="photo">
+  <form action="/vitrine-download" method="post" class="upload-dom" enctype="multipart/form-data">
+    <input type="file" name="photo-vitrine" id="photo">
     <button type="submit">SAVE</button>
     <div class="exit-upload-dom"> <span>X</span> </div>
   </form>
@@ -28,7 +28,7 @@
 
   <div data-aos="fade-right" class="user-main-info">
     <div class="user-icon">
-      <img src="{{Project.userId.image}}" alt="user_icon">
+      <img src="{{Project.userId.image}}" alt="user_icon" class="image-switch">
     </div>
     <div class="tutorial-h1-flex">
       <h1>{{Project.title}}</h1>

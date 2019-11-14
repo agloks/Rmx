@@ -10,17 +10,14 @@ const user = require("../models/schemaUser.js")
 
 //GET ROUTE
 router.get("/login", (req, res) => {
-    console.log(color.red(">>> To no get login \n"))
     res.render("login&&sign/login")
 })
 
 //POST ROUTE
 router.post("/login/post", async (req, res) => {
     //pega a resposta do post
-    console.log(req.body)
 
     const sendControl = await user.find({ login: req.body.login })// pegando o objeto usuario no bd
-    console.log(sendControl)
     const userControled = (sendControl.length === 0) ? new controlUserReq("Guess") : new controlUserReq(sendControl[0].role)//passando a role para a classe que controlara o dom
     userControled.setPermission()//setando as permissão que o usuario pode
 
@@ -34,7 +31,6 @@ router.post("/login/post", async (req, res) => {
             }).redirect("/user-profile")
             // .render("user/user.hbs", sendControl[0])//precisamos manda o id para o hbs
     } else {
-        console.log("error no post login" + sendControl)
         res.redirect("/login")
     }
 })

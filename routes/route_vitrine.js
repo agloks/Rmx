@@ -87,6 +87,14 @@ router.post("/vitrine/owner", async (req, res) => { // 2
   }
 })
 
+//UPLOAD
+router.post("/vitrine-download", uploadCloud.single("photo-vitrine"), async(req, res) => {
+  let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
+  const idProject = parseRefererHeader(req.headers)
+  let foundUpdate = await project.findByIdAndUpdate(idProject, {image: `https://res.cloudinary.com/rmx/image/upload/v1573593577/user-rmx/${req.file.originalname}.${req.file.format}`} )
+  res.redirect(307, `/vitrine/owner?id=${idProject}`)
+})
+
 //delete
 router.post("/vitrine/remove" , async (req, res) => {
   let idVitrineRemove = req.query.id

@@ -86,9 +86,7 @@ router.post("/tutorial/owner", async (req, res) => { // 2
 router.post("/tutorial-download", uploadCloud.single("photo-tutorial"), async(req, res) => {
   let userCookies = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
   const idArticle = parseRefererHeader(req.headers)
-  console.log(idArticle)
   let foundUpdate = await article.findByIdAndUpdate(idArticle, {image: `https://res.cloudinary.com/rmx/image/upload/v1573593577/user-rmx/${req.file.originalname}.${req.file.format}`} )
-  .then((s) => { return s })
   res.redirect(307, `/tutorial/owner?id=${idArticle}`)
 })
 

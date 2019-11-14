@@ -24,11 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function enabledTextArea() {
       try {
         let textarea = document.getElementsByTagName("textarea")[0]
+        let inputarea = document.getElementsByTagName("input")[0]
   
         if( document.cookie.match(/11111/) ) {
           textarea.removeAttribute("disabled") 
+          inputarea.removeAttribute("disabled")
           } else { 
-          textarea.setAttribute("disabled","disabled")
+          textarea.setAttribute("disabled", "disabled")
+          inputarea.setAttribute("disabled", "disabled")
           }
       } catch(e) {
         console.log(e)
