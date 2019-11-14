@@ -51,7 +51,7 @@ router.post("/tutorial/edit", async(req, res) => { // 2
     if(req.body.userId !== null) { req.body.Article = await article.findByIdAndUpdate(req.query.id, req.body) }//criando o tutorial se ele ta em texto e logado
     res.render("tutoriais/tutorial-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
   } else { //erro
-    res.render("tutoriais/tutorial-edit.hbs", { error: "Falha ao criar o post, preencha os campo corretamente" }) 
+    res.render("tutoriais/tutorial-edit.hbs", { id: req.query.id, error: "Falha ao criar o post, preencha os campo corretamente" }) 
   }
 })
 
@@ -100,7 +100,6 @@ router.post("/tutorial/remove" , async (req, res) => {
   
   if(idTutorialRemove && enableRemove) {
     article.findByIdAndRemove(idTutorialRemove)
-    .then((s) => console.log(s))
     .catch((e) => console.log(e))
   }
 

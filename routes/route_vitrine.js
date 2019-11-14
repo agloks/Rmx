@@ -25,8 +25,6 @@ router.get("/vitrine", async (req, res) => { // 1
   if(idUserOwner !== null) {
     //PRECISAMOS MEXER AQUI, PARA QUE QUANDO ELE TIVER LOGADO O QUE ELE PODERA FAZER?
     var allProject = await project.find().populate("userId") // array de todos os documentos achado
-    // console.log(allProject)
-    // console.log(idUserOwner)
   }
   else{ var allProject = await project.find().populate("userId") }//DEFAULT MOSTRAMOS A QUEM PERTENCE O TEXTO
   res.render("vitrine/vitrine.hbs", {allProject} )
@@ -54,7 +52,7 @@ router.post("/vitrine/edit", async(req, res) => { // 2
     req.body.Project = await project.findByIdAndUpdate(req.query.id, req.body)//criando o tutorial se ele ta em texto e logado
     res.redirect("/vitrine") //mandamos para o hbs o objeto para manipular
   } else { //erro
-    res.render("vitrine/vitrine-edit.hbs", { error: "Falha ao criar o projeto, preencha os campo corretamente" }) 
+    res.render("vitrine/vitrine-edit.hbs", { id: req.query.id ,error: "Falha ao criar o projeto, preencha os campo corretamente" }) 
   }
 })
 
@@ -105,7 +103,6 @@ router.post("/vitrine/remove" , async (req, res) => {
 
   if(idVitrineRemove && enableRemove) {
     project.findByIdAndRemove(idVitrineRemove)
-    .then((s) => console.log(s))
     .catch((e) => console.log(e))
   }
 
