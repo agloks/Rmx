@@ -1,7 +1,13 @@
-const color = require("chalk")
 const router = require("./route_raiz.js")
 const util = require("util")
 const project = require("../models/schemaProject.js")
+
+const user = require("../models/schemaUser.js")
+const userIsLogged = require("../models/userLogged")
+const multer = require("multer")
+const cloudinary = require("cloudinary")
+const uploadCloud = require("../cloudinary/cloud")
+const parseRefererHeader = require("../models/parserRefererHeader")
 
 
 //FUNCÕES
@@ -14,7 +20,6 @@ async function createProject(reqs) {
 //GET ROUTE
 //Tutorial do visitante, sem permissão de editar
 router.get("/vitrine", async (req, res) => { // 1
-  console.log( color.red(">>> To no vitrine get \n") )
   //vemos se o usuario ta logado
   let idUserOwner = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
   if(idUserOwner !== null) {
@@ -33,14 +38,12 @@ router.get("/vitrine/create", (req, res) => { //3
 })
 
 router.get("/vitrine/editView", (req,res) => {
-  console.log( color.red("to no get edit view" + req.query.id ))
   res.render("vitrine/vitrine-edit.hbs", {id: req.query.id})
 })
 
 //POST
 //pegamos o id do render sucess na rote_login
 router.post("/vitrine/edit", async(req, res) => { // 2
-  console.log( color.red(">>> To no vitrine post edit \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
 
   const findProject = await project.findById(req.query.id).then((s)=> {return (s)})
@@ -56,7 +59,6 @@ router.post("/vitrine/edit", async(req, res) => { // 2
 })
 
 router.post("/vitrine/create", async(req, res) => {
-  console.log( color.red(">>> To no vitrine post create \n" + req.query.id ) );
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null//colocamos o id do user para o objeto req.body
   if((req.body.text !== "") && (req.body.title !== "") && (req.body.userId !== null))//criando
   {
@@ -69,15 +71,25 @@ router.post("/vitrine/create", async(req, res) => {
 
 //AQUI SÓ VEMOS O RESULTADO ESPECIFICO, VINDO DE ALL TUTORIALs
 router.post("/vitrine/owner", async (req, res) => { // 2
-  console.log( color.red(">>> To no vitrine owner \n" + req.query.id ) );
-  req.body.Project = await project.findById(req.query.id).populate("userId")
-  res.render("vitrine/vitrine-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  const projectShow = await project.findById(req.query.id).populate("userId")
+
+  req.body.id = req.query.id
+  const userId = `"${userIsLogged(req)}"`
+  
+  if(userId === JSON.stringify(projectShow.userId._id)) {
+    req.body.showButtonEdit = true
+    req.body.Project = projectShow
+    res.render("vitrine/vitrine-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  } else {
+    req.body.showButtonEdit = null
+    req.body.Project = projectShow
+    res.render("vitrine/vitrine-owner.hbs", req.body) //mandamos para o hbs o objeto para manipular
+  }
 })
 
 //delete
 router.post("/vitrine/remove" , async (req, res) => {
   let idVitrineRemove = req.query.id
-  console.log( "to na routa post remove Vitrine " + idVitrineRemove)
   req.body.userId = (req.cookies.Connection !== undefined) ? req.cookies.Connection.id : null
 
   const findProject = await project.findById(idVitrineRemove)

@@ -16,15 +16,12 @@ async function newUser(reqs) {
 
 //GET
 router.get("/sign", (req, res) => {
-  console.log( color.red(">>> To no sign get\n") )
   res.render("login&&sign/sign.hbs")
 })
 
 //POST
 router.post("/sign", async (req, res) => {
-  console.log( color.red(">>> To no sign post\n") )
   const reqSave = req.body
-  console.log( reqSave )
 
   //fazemos verficação pelo tamanho dos campo escrito
   try {
@@ -34,7 +31,6 @@ router.post("/sign", async (req, res) => {
       res.redirect("/login")
     } else { res.render("login&&sign/sign.hbs", {error : `falha ao registrar, verificar se os campos tao registrado corretamente`} ) } 
   } catch (error) {
-    console.log("error found sign " + error)  
     res.render("login&&sign/sign.hbs", {error : "login ja existe"} )
   }
 })

@@ -8,7 +8,7 @@ const moment = require("moment")
 //criando esqueleto do documento article
 const ArticleSchema = new Schema (
   {
-    image: {type: String, default: "images/tutorial/qaglock.jpg"},
+    image: {type: String, default: "https://res.cloudinary.com/rmx/image/upload/v1573594449/user-rmx/green.jpeg.jpg"},
     userId: { type:Schema.Types.ObjectId, ref:"user" },
     title: {type: Schema.Types.Mixed, default: 'No title'},
     text: Schema.Types.Mixed,

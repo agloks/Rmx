@@ -8,7 +8,7 @@ const moment = require("moment")
 //criando esqueleto do documento usuario
 const UserSchema = new Schema (
   {
-  image:{type: String, default: "images/user/buddypoke_user_default.png"},
+  image:{type: String, default: "https://res.cloudinary.com/rmx/image/upload/v1573749404/user-rmx/buddypoke_user_default_ootjl4.png"},
   name: String ,
   login: { type:Schema.Types.Mixed, unique: true, required: true } ,
   password: { type: Schema.Types.Mixed, required: true },
